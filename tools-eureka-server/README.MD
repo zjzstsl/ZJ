@@ -32,7 +32,7 @@ run.sh tools-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=cluster -
 java -jar tools-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=cluster --server.port=${port} --eureka.instance.hostname=${instance-hostname} --eureka.client.service-url.defaultZone=${other-eureka-url}
 ```
 
->>其中
+其中
     
     --spring.profile.active=cluster 指明使用 application-cluster.properties 配置启动
     --server.port=${port} 指定本实例的端口 ${port}，建议每次 18000+1。 如果不指定，默认用18000
@@ -40,7 +40,7 @@ java -jar tools-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=cluste
     --eureka.client.service-url.defaultZone=${other-eureka-url} 指定集群中另一个注册中心的url
     ${other-eureka-url} 的结构为：http://${eureka.instance.hostname}:${server.port}/eureka/
     
- >>举例
+举例
  
     假如，准备在同一台服务器上，启动两个服务注册中心，构成集群:
     第一个：
