@@ -2,21 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>org.tis</groupId>
 	<artifactId>tools-scaffolds</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>tools-scaffolds</name>
 	<description>Scaffolds  for application develop whith Tools </description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.10.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>org.tis</groupId>
+		<artifactId>tools-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../tools-parent/pom.xml</relativePath>
 	</parent>
+
+	<modules>
+		<!--<module></module>-->
+	</modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
