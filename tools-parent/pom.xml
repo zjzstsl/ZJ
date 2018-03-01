@@ -14,7 +14,6 @@
 		<module>../tools-eureka-server</module>
 		<module>../tools-config-server</module>
 		<module>../tools-abf-service</module>
-		<module>../tools-scaffolds</module>
 	</modules>
 
 	<parent>
