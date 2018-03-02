@@ -11,6 +11,7 @@
 
 	<packaging>pom</packaging>
 	<modules>
+		<module>../tools-core</module>
 		<module>../tools-eureka-server</module>
 		<module>../tools-config-server</module>
 		<module>../tools-abf-service</module>
