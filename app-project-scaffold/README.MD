@@ -5,6 +5,7 @@
 ## 框架说明：
 
 - 基于 Spring boot 2.0.0 RELEASE
+- 集成 [Mybatis-puls 2.1.9](https://github.com/baomidou/mybatis-plus, "github")
 
 ## 能力说明：
 
