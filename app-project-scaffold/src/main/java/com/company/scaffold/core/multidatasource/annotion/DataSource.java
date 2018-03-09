@@ -19,5 +19,5 @@ public @interface DataSource {
      * 指定数据源名称
      * @return
      */
-    String name() default "";
+    String name() ; //default "";
 }
