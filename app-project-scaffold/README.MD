@@ -5,11 +5,13 @@
 ## 框架说明：
 
 - 基于 Spring boot 2.0.0 RELEASE
-- 集成 [Mybatis-puls 2.1.9](https://github.com/baomidou/mybatis-plus, "github")
+- 集成 [Mybatis-puls 2.1.9](https://github.com/baomidou/mybatis-plus "github")
 
 ## 能力说明：
 
 - 规范代码开发包结构层次；
+- 支持多数据源；[查看使用说明](../doc/README-multiDataSource.MD "多数据源使用帮助")
+- 
 
 
 ## 如何使用：
