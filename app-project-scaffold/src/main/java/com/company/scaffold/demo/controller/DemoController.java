@@ -34,4 +34,9 @@ public class DemoController {
     public Object tree() {
         return demoService.tree();
     }
+
+    @GetMapping("/treehis")
+    public Object treeHis() {
+        return demoService.treeHis();
+    }
 }
