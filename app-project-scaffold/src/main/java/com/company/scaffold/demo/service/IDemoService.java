@@ -20,4 +20,11 @@ public interface IDemoService extends IService<Demo> {
      * @return
      */
     List<DemoTreeVo> tree();
+
+    /**
+     * 获取历史数据节点信息
+     *
+     * @return
+     */
+    List<DemoTreeVo> treeHis();
 }

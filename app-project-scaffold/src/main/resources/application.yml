@@ -22,7 +22,7 @@ tools:
   #swagger-open: true #是否开启swagger (true/false)
   #kaptcha-open: false #是否开启登录时验证码 (true/false)
   #file-upload-path: d:/tmp  #文件上传目录(不配置的话为java.io.tmpdir目录)
-  multi-datasource-open: false #是否开启多数据源(true/false)
+  multi-datasource-open: true #是否开启多数据源(true/false)
   #spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
   #session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
   #session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
@@ -78,7 +78,7 @@ spring:
   profiles: dev
   # 默认数据源
   datasource:
-    #driverClassName: com.mysql.jdbc.Driver
+    datasource-name: default
     url: jdbc:mysql://localhost:3306/tistools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
     password: root123098
@@ -92,15 +92,16 @@ tools:
   mybatis-performance-open: true
   multi-datasource:
     # 多数据源名称
-    default-dataSource-name: defaultDataSource
-    url: jdbc:mysql://localhost:3306/guns_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    datasource-name: otherDataSource
+    url: jdbc:mysql://localhost:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: root123
+    password: root123098
 
 # :::::: 日志输出、级别配置 ::::::
 logging:
   level.root: info
   level.org.tis.tools: debug
+  level.com.company.scaffold: debug
   path: logs/
   file: scaffold.log
 
