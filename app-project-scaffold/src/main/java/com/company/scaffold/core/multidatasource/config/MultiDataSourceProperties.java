@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 public class MultiDataSourceProperties {
 
     /**
-     * 数据源名称（默认为defaultDataSource）
+     * 数据源名称，如果不指定默认使用 other
      */
-    private String defaultDataSourceName = "defaultDataSource";
+    private String datasourceName = "other";
 
     private String url = "jdbc:mysql://127.0.0.1:3306/biz?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
 
@@ -32,6 +32,7 @@ public class MultiDataSourceProperties {
     private String validationQuery = "SELECT 'x'";
 
     public void config(DruidDataSource dataSource) {
+        dataSource.setName(datasourceName);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
@@ -63,12 +64,12 @@ public class MultiDataSourceProperties {
         this.password = password;
     }
 
-    public String getDefaultDataSourceName() {
-        return defaultDataSourceName;
+    public String getDatasourceName() {
+        return datasourceName;
     }
 
-    public void setDefaultDataSourceName(String defaultDataSourceName) {
-        this.defaultDataSourceName = defaultDataSourceName;
+    public void setDatasourceName(String dataSourceName) {
+        this.datasourceName = dataSourceName;
     }
 
     public String getDriverClassName() {

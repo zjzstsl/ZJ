@@ -9,12 +9,19 @@ import java.sql.SQLException;
 /**
  * <p>数据库数据源配置</p>
  * <p>说明:这个类中包含了许多默认配置,若这些配置符合您的情况,您可以不用管,若不符合,建议不要修改本类,建议直接在"application.yml"中配置即可</p>
+ *
  * @author stylefeng
- * @date 2017-05-21 11:18
+ * @author Shiyunlai
+ * @since 2017-05-21 11:18
  */
 @Component
 @ConfigurationProperties(prefix = "spring.datasource")
 public class DruidProperties {
+
+    /**
+     * 如果不指定，默认使用 default
+     */
+    private String datasourceName = "default";
 
     private String url = "jdbc:mysql://127.0.0.1:3306/tools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
 
@@ -52,15 +59,20 @@ public class DruidProperties {
 
     public void config(DruidDataSource dataSource) {
 
+        dataSource.setName(datasourceName);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
 
         dataSource.setDriverClassName(driverClassName);
-        dataSource.setInitialSize(initialSize);     //定义初始连接数
-        dataSource.setMinIdle(minIdle);             //最小空闲
-        dataSource.setMaxActive(maxActive);         //定义最大连接数
-        dataSource.setMaxWait(maxWait);             //最长等待时间
+        //定义初始连接数
+        dataSource.setInitialSize(initialSize);
+        //最小空闲
+        dataSource.setMinIdle(minIdle);
+        //定义最大连接数
+        dataSource.setMaxActive(maxActive);
+        //最长等待时间
+        dataSource.setMaxWait(maxWait);
 
         // 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
         dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
@@ -81,6 +93,14 @@ public class DruidProperties {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getDatasourceName() {
+        return datasourceName;
+    }
+
+    public void setDatasourceName(String datasourceName) {
+        this.datasourceName = datasourceName;
     }
 
     public String getUrl() {

@@ -22,7 +22,8 @@ import java.lang.reflect.Method;
  * 多数据源切换的aop
  *
  * @author fengshuonan
- * @date 2017年3月5日 上午10:22:16
+ * @author Shiyunlai
+ * @since 2017年3月5日 上午10:22:16
  */
 @Aspect
 @Component
@@ -57,8 +58,8 @@ public class MultiSourceExAop implements Ordered {
             DataSourceContextHolder.setDataSourceType(datasource.name());
             log.debug("使用指定数据源：" + datasource.name());
         } else {
-            DataSourceContextHolder.setDataSourceType(multiDataSourceProperties.getDefaultDataSourceName());
-            log.debug("使用默认数据源：" + multiDataSourceProperties.getDefaultDataSourceName());
+            DataSourceContextHolder.setDataSourceType(multiDataSourceProperties.getDatasourceName());
+            log.debug("使用默认数据源：" + multiDataSourceProperties.getDatasourceName());
         }
 
         try {

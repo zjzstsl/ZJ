@@ -6,11 +6,12 @@ import com.baomidou.mybatisplus.mapper.LogicSqlInjector;
 import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
-import com.company.scaffold.base.constant.DatasourceEnum;
 import com.company.scaffold.core.datasource.config.DruidProperties;
 import com.company.scaffold.core.multidatasource.DynamicDataSource;
 import com.company.scaffold.core.multidatasource.config.MultiDataSourceProperties;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -34,11 +35,13 @@ import java.util.HashMap;
 @MapperScan(basePackages = {"com.company.scaffold.*.dao"})
 public class MybatisPlusAutoConfiguration {
 
+    private final static Logger logger = LoggerFactory.getLogger(MybatisPlusAutoConfiguration.class);
+
     @Autowired
     DruidProperties druidProperties;
 
     @Autowired
-    MultiDataSourceProperties mutiDataSourceProperties;
+    MultiDataSourceProperties multiDataSourceProperties;
 
     /**
      * 配置单数据源连接池
@@ -55,21 +58,22 @@ public class MybatisPlusAutoConfiguration {
     @Bean
     @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
     public DynamicDataSource multiDataSource() {
+        logger.info("启用多数据源");
 
         DruidDataSource defaultDataSource = defaultDataSource();
-        DruidDataSource bizDataSource = bizDataSource();
+        DruidDataSource otherDataSource = bizDataSource();
 
         try {
             defaultDataSource.init();
-            bizDataSource.init();
+            otherDataSource.init();
         } catch (SQLException sql) {
             sql.printStackTrace();
         }
 
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         HashMap<Object, Object> hashMap = new HashMap(2);
-        hashMap.put(DatasourceEnum.DATA_SOURCE_DEF, defaultDataSource);
-        hashMap.put(DatasourceEnum.DATA_SOURCE_BIZ, bizDataSource);
+        hashMap.put(defaultDataSource.getName(), defaultDataSource);
+        hashMap.put(otherDataSource.getName(), otherDataSource);
         dynamicDataSource.setTargetDataSources(hashMap);
         dynamicDataSource.setDefaultTargetDataSource(defaultDataSource);
         return dynamicDataSource;
@@ -114,7 +118,7 @@ public class MybatisPlusAutoConfiguration {
     private DruidDataSource bizDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         druidProperties.config(dataSource);
-        mutiDataSourceProperties.config(dataSource);
+        multiDataSourceProperties.config(dataSource);
         return dataSource;
     }
 
