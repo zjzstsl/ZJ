@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+org.tis.tools.starter.configurer.MultiDataSourceAutoConfiguration,\
+org.tis.tools.starter.configurer.MybatisPlusAutoConfiguration
