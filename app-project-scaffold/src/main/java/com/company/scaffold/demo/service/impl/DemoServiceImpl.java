@@ -1,7 +1,6 @@
 package com.company.scaffold.demo.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.company.scaffold.base.constant.DatasourceEnum;
 import com.company.scaffold.core.multidatasource.annotion.DataSource;
 import com.company.scaffold.demo.dao.DemoMapper;
 import com.company.scaffold.demo.entity.Demo;

@@ -1,83 +1,29 @@
 package com.company.scaffold.configurer;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.mapper.ISqlInjector;
 import com.baomidou.mybatisplus.mapper.LogicSqlInjector;
+import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
 import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
-import com.company.scaffold.core.datasource.config.DruidProperties;
-import com.company.scaffold.core.multidatasource.DynamicDataSource;
-import com.company.scaffold.core.multidatasource.config.MultiDataSourceProperties;
+import com.company.scaffold.core.ext.mybatisplus.ToolsEntityMetaObjectHandler;
 import org.mybatis.spring.annotation.MapperScan;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.sql.SQLException;
-import java.util.HashMap;
 
 /**
  * <pre>
  * 自动配置MybatisPlus
- * 注解 @EnableTransactionManagement(order=2) 由于引入多数据源，所以让spring事务的aop要在多数据源切换aop的后面*
  * </pre>
  *
  * @author stylefeng
- * @Date 2017/5/20 21:58
+ * @author Shiyunlai
+ * @since 2017/5/20 21:58
  */
 @Configuration
-@EnableTransactionManagement(order = 2)
 @MapperScan(basePackages = {"com.company.scaffold.*.dao"})
 public class MybatisPlusAutoConfiguration {
-
-    private final static Logger logger = LoggerFactory.getLogger(MybatisPlusAutoConfiguration.class);
-
-    @Autowired
-    DruidProperties druidProperties;
-
-    @Autowired
-    MultiDataSourceProperties multiDataSourceProperties;
-
-    /**
-     * 配置单数据源连接池
-     */
-    @Bean
-    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "false")
-    public DruidDataSource singleDatasource() {
-        return defaultDataSource();
-    }
-
-    /**
-     * 配置多数据源连接池
-     */
-    @Bean
-    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
-    public DynamicDataSource multiDataSource() {
-        logger.info("启用多数据源");
-
-        DruidDataSource defaultDataSource = defaultDataSource();
-        DruidDataSource otherDataSource = bizDataSource();
-
-        try {
-            defaultDataSource.init();
-            otherDataSource.init();
-        } catch (SQLException sql) {
-            sql.printStackTrace();
-        }
-
-        DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        HashMap<Object, Object> hashMap = new HashMap(2);
-        hashMap.put(defaultDataSource.getName(), defaultDataSource);
-        hashMap.put(otherDataSource.getName(), otherDataSource);
-        dynamicDataSource.setTargetDataSources(hashMap);
-        dynamicDataSource.setDefaultTargetDataSource(defaultDataSource);
-        return dynamicDataSource;
-    }
 
     /**
      * mybatis-plus分页插件
@@ -108,27 +54,13 @@ public class MybatisPlusAutoConfiguration {
      * 注入sql注入器
      */
     @Bean
-    public ISqlInjector sqlInjector(){
+    public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
     }
 
-    /**
-     * 另一个数据源
-     */
-    private DruidDataSource bizDataSource() {
-        DruidDataSource dataSource = new DruidDataSource();
-        druidProperties.config(dataSource);
-        multiDataSourceProperties.config(dataSource);
-        return dataSource;
-    }
-
-    /**
-     * 默认数据源
-     */
-    private DruidDataSource defaultDataSource() {
-        DruidDataSource dataSource = new DruidDataSource();
-        druidProperties.config(dataSource);
-        return dataSource;
+    @Bean
+    public MetaObjectHandler metaObjectHandler(){
+        return new ToolsEntityMetaObjectHandler();
     }
 
 //    /**

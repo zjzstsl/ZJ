@@ -45,5 +45,19 @@ tools:
 //FIXME 目前还未支持自由配置yml，提供多个数据源
 
 
-# 方式二： 使用Sharding jdbc的多数据源
-//TODO ... 集成后写手册
+# 方式二： 使用Sharding jdbc提供多数据源支持
+
+文档参考： 
+http://shardingjdbc.io
+http://shardingjdbc.io/docs_1.x/00-overview/
+
+项目源码：
+https://github.com/shardingjdbc/sharding-jdbc
+https://github.com/shardingjdbc/sharding-jdbc-example
+
+集成mybatis-plus、sharding-jdbc、spring boot的starter:
+https://gitee.com/dianyun/sharding-jdbc-mybatis-plus-spring-boot-starter.git
+
+使用sharding-jdbc-mybatis-plus-spring-boot-starter的Demo：
+https://gitee.com/baomidou/mybatisplus-sharding-jdbc.git
+

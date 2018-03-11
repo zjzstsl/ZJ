@@ -39,4 +39,14 @@ public class DemoController {
     public Object treeHis() {
         return demoService.treeHis();
     }
+
+    @PostMapping("")
+    public void addDemoTree(@RequestBody Demo demo) {
+        demoService.insert(demo);
+    }
+
+    @PutMapping("")
+    public void updateDemo( @RequestBody Demo demo){
+        demoService.updateById(demo);
+    }
 }
