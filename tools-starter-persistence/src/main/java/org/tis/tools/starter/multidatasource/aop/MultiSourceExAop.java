@@ -11,10 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.tis.tools.starter.multidatasource.DataSourceContextHolder;
-import org.tis.tools.starter.multidatasource.DynamicDataSource;
 import org.tis.tools.starter.multidatasource.annotion.DataSource;
 import org.tis.tools.starter.mybatisplus.config.DruidProperties;
 
