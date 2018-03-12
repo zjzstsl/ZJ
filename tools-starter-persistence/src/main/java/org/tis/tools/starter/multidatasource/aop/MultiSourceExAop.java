@@ -32,9 +32,6 @@ public class MultiSourceExAop implements Ordered {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    DruidProperties druidProperties;
-
     @Pointcut(value = "@annotation(org.tis.tools.starter.multidatasource.annotion.DataSource)")
     private void cut() {
 
@@ -49,26 +46,26 @@ public class MultiSourceExAop implements Ordered {
     @Around("cut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
 
+        // 取得注解对象
         Signature signature = point.getSignature();
         MethodSignature methodSignature = null;
         if (!(signature instanceof MethodSignature)) {
             throw new IllegalArgumentException("该注解只能用于方法");
         }
         methodSignature = (MethodSignature) signature;
-
         Object target = point.getTarget();
         Method currentMethod = target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
-
         DataSource datasource = currentMethod.getAnnotation(DataSource.class);
+
         if (datasource != null) {
             if( !DataSourceContextHolder.contains(datasource.name()) ){
-                throw new IllegalArgumentException("执行"+currentMethod.toString()+"方式时，找不到指定的数据源"+datasource.name());
+                log.warn("执行"+currentMethod.toString()+"方式时，找不到指定的数据源"+datasource.name()+"。系统将使用默认数据源！");
             }
             log.debug("使用指定数据源：" + datasource.name());
             DataSourceContextHolder.setDataSourceType(datasource.name());
         } else {
-            log.debug("使用默认数据源：" + druidProperties.getDatasourceName());
-            DataSourceContextHolder.setDataSourceType(druidProperties.getDatasourceName());
+            log.debug("使用默认数据源!");
+            //DataSourceContextHolder.setDataSourceType(druidProperties.getDatasourceName());
         }
 
         try {
