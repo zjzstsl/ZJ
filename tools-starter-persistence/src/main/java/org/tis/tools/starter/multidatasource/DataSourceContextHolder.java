@@ -54,26 +54,12 @@ public class DataSourceContextHolder {
     }
 
     /**
-     * 获取所有数据源名称
-     *
-     * @return
-     */
-    public static List<String> getDatasourceNames() {
-        return datasourceNames;
-    }
-
-    /**
      * 判断是否存在某个数据源
      *
      * @param datasourceName
      * @return
      */
     public static boolean contains(String datasourceName) {
-        for (String dsn : datasourceNames) {
-            if (datasourceName.equals(dsn)) {
-                return true;
-            }
-        }
-        return false;
+        return datasourceNames.contains(datasourceName);
     }
 }
