@@ -1,5 +1,8 @@
 package org.tis.tools.starter.multidatasource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * datasource的上下文
  *
@@ -8,7 +11,15 @@ package org.tis.tools.starter.multidatasource;
  */
 public class DataSourceContextHolder {
 
+    /**
+     * 储存当线程使用的数据源名称
+     */
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();
+
+    /**
+     * 存储所有数据源名称
+     */
+    private static final List<String> datasourceNames = new ArrayList<String>();
 
     /**
      * 设置数据源类型
@@ -31,5 +42,38 @@ public class DataSourceContextHolder {
      */
     public static void clearDataSourceType() {
         contextHolder.remove();
+    }
+
+    /**
+     * 存储数据源名称
+     *
+     * @param datasourceName
+     */
+    public static void registerName(String datasourceName) {
+        datasourceNames.add(datasourceName);
+    }
+
+    /**
+     * 获取所有数据源名称
+     *
+     * @return
+     */
+    public static List<String> getDatasourceNames() {
+        return datasourceNames;
+    }
+
+    /**
+     * 判断是否存在某个数据源
+     *
+     * @param datasourceName
+     * @return
+     */
+    public static boolean contains(String datasourceName) {
+        for (String dsn : datasourceNames) {
+            if (datasourceName.equals(dsn)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

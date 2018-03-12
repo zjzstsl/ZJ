@@ -4,12 +4,17 @@ import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.tis.tools.starter.multidatasource.DataSourceContextHolder;
 import org.tis.tools.starter.multidatasource.DynamicDataSource;
+import org.tis.tools.starter.multidatasource.aop.MultiSourceExAop;
 import org.tis.tools.starter.multidatasource.config.MultiDataSourceProperties;
 import org.tis.tools.starter.mybatisplus.config.DruidProperties;
 
@@ -27,7 +32,7 @@ import java.util.HashMap;
  * @since 2018-03-11
  */
 @Configuration
-@EnableConfigurationProperties({DruidProperties.class,MultiDataSourceProperties.class})
+@EnableConfigurationProperties({DruidProperties.class, MultiDataSourceProperties.class})
 @EnableTransactionManagement(order = 2)
 public class MultiDataSourceAutoConfiguration {
 
@@ -51,13 +56,13 @@ public class MultiDataSourceAutoConfiguration {
     /**
      * 配置多数据源连接池
      */
-    @Bean
+    @Bean(name = "dataSource")
     @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
     public DynamicDataSource multiDataSource() {
         logger.info("启用多数据源");
 
         DruidDataSource defaultDataSource = defaultDataSource();
-        DruidDataSource otherDataSource = bizDataSource();
+        DruidDataSource otherDataSource = otherDataSource();
 
         try {
             defaultDataSource.init();
@@ -69,16 +74,30 @@ public class MultiDataSourceAutoConfiguration {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         HashMap<Object, Object> hashMap = new HashMap(2);
         hashMap.put(defaultDataSource.getName(), defaultDataSource);
+        DataSourceContextHolder.registerName(defaultDataSource.getName());
         hashMap.put(otherDataSource.getName(), otherDataSource);
+        DataSourceContextHolder.registerName(otherDataSource.getName());
         dynamicDataSource.setTargetDataSources(hashMap);
         dynamicDataSource.setDefaultTargetDataSource(defaultDataSource);
         return dynamicDataSource;
     }
 
+    @Bean
+    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
+    public PlatformTransactionManager txManager() {
+        return new DataSourceTransactionManager(multiDataSource());
+    }
+
+    @Bean
+    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
+    public MultiSourceExAop multiSourceExAop() {
+        return new MultiSourceExAop();
+    }
+
     /**
      * 另一个数据源
      */
-    private DruidDataSource bizDataSource() {
+    private DruidDataSource otherDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         druidProperties.config(dataSource);
         multiDataSourceProperties.config(dataSource);

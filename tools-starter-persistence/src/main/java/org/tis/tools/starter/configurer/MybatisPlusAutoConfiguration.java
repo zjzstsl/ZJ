@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import org.tis.tools.starter.mybatisplus.ext.ToolsEntityMetaObjectHandler;
 /**
  * <pre>
  * 自动配置MybatisPlus
+ * 注解 @AutoConfigureAfter 在 MultiDataSourceAutoConfiguration之后进行自动配置
  * </pre>
  *
  * @author stylefeng
@@ -22,6 +24,7 @@ import org.tis.tools.starter.mybatisplus.ext.ToolsEntityMetaObjectHandler;
  * @since 2017/5/20 21:58
  */
 @Configuration
+//@AutoConfigureAfter(MultiDataSourceAutoConfiguration.class)
 @MapperScan(basePackages = {"org.tis.**.dao"})
 public class MybatisPlusAutoConfiguration {
 
@@ -59,7 +62,7 @@ public class MybatisPlusAutoConfiguration {
     }
 
     @Bean
-    public MetaObjectHandler metaObjectHandler(){
+    public MetaObjectHandler metaObjectHandler() {
         return new ToolsEntityMetaObjectHandler();
     }
 
