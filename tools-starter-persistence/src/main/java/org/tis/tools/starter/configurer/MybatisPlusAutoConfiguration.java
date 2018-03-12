@@ -24,7 +24,6 @@ import org.tis.tools.starter.mybatisplus.ext.ToolsEntityMetaObjectHandler;
  * @since 2017/5/20 21:58
  */
 @Configuration
-//@AutoConfigureAfter(MultiDataSourceAutoConfiguration.class)
 @MapperScan(basePackages = {"org.tis.**.dao"})
 public class MybatisPlusAutoConfiguration {
 
