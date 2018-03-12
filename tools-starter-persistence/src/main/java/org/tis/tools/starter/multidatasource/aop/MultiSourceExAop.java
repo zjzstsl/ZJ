@@ -8,13 +8,11 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 import org.tis.tools.starter.multidatasource.DataSourceContextHolder;
 import org.tis.tools.starter.multidatasource.annotion.DataSource;
-import org.tis.tools.starter.mybatisplus.config.DruidProperties;
 
 import java.lang.reflect.Method;
 
@@ -39,6 +37,7 @@ public class MultiSourceExAop implements Ordered {
 
     /**
      * 根据注解中指明的名称，选择数据源
+     *
      * @param point
      * @return
      * @throws Throwable
@@ -57,18 +56,15 @@ public class MultiSourceExAop implements Ordered {
         Method currentMethod = target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
         DataSource datasource = currentMethod.getAnnotation(DataSource.class);
 
-        if (datasource != null) {
-            if( !DataSourceContextHolder.contains(datasource.name()) ){
-                log.warn("执行"+currentMethod.toString()+"方式时，找不到指定的数据源"+datasource.name()+"。系统将使用默认数据源！");
-            }
+        if (!DataSourceContextHolder.contains(datasource.name())) {
+            log.warn("执行" + currentMethod.toString() + "方式时，找不到指定的数据源" + datasource.name() + "。系统将使用默认数据源！");
+        } else {
             log.debug("使用指定数据源：" + datasource.name());
             DataSourceContextHolder.setDataSourceType(datasource.name());
-        } else {
-            log.debug("使用默认数据源!");
-            //DataSourceContextHolder.setDataSourceType(druidProperties.getDatasourceName());
         }
 
         try {
+            // 执行原方法
             return point.proceed();
         } finally {
             log.debug("清空数据源信息！");
