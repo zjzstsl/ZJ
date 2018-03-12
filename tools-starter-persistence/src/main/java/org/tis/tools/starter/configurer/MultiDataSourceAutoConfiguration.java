@@ -56,8 +56,7 @@ public class MultiDataSourceAutoConfiguration {
     /**
      * 配置多数据源连接池
      */
-//    @Bean(name = "dataSource")
-    @Bean
+    @Bean(name = "dataSource")
     @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
     public DynamicDataSource multiDataSource() {
         logger.info("启用多数据源");
