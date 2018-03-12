@@ -4,10 +4,12 @@
 
 ### 能力描述
 
-1. 集成 mybatis-plus
+1. 集成[mybatis-plus](http://baomidou.oschina.io/mybatis-plus-doc/#/ "mybatis-plus")
 1. 使用 druid 数据连接池
 1. 提供多数据源能力，使用配置相见 《tools-for-test》项目
 1. //TODO 集成sharding-jdbc 提供多个数据源的支持 （目前为简单实现，除默认数据源外，只提供了一个数据的定义，见：MultiDataSourceAutoConfiguration）
+实现参考：http://blog.csdn.net/catoop/article/details/50575038
+
 
 ### Quick Start
 0、新建应用项目spring boot工程或标准maven工程；
