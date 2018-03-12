@@ -1,6 +1,7 @@
 package org.tis.toolsfortest.usestarter.persistence.demo.service;
 
 import com.baomidou.mybatisplus.service.IService;
+import org.tis.tools.starter.multidatasource.annotion.DataSource;
 import org.tis.toolsfortest.usestarter.persistence.demo.entity.Demo;
 import org.tis.toolsfortest.usestarter.persistence.demo.vo.DemoTreeVo;
 
@@ -22,9 +23,20 @@ public interface IDemoService extends IService<Demo> {
     List<DemoTreeVo> tree();
 
     /**
+     * 新增记录
+     * @param demo
+     */
+    void add(Demo demo) ;
+
+    /**
      * 获取历史数据节点信息
-     *
      * @return
      */
     List<DemoTreeVo> treeHis();
+
+    /**
+     * 新增历史记录
+     * @param demo
+     */
+    void addHis(Demo demo) ;
 }

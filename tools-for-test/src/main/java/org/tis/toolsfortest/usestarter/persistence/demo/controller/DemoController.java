@@ -45,7 +45,17 @@ public class DemoController {
 
     @PostMapping("")
     public void addDemoTree(@RequestBody Demo demo) {
-        demoService.insert(demo);
+        // 新增记录（指定数据源）
+        demoService.add(demo);
+    }
+
+    /**
+     * 记录历史记录
+     * @param demo
+     */
+    @PostMapping("/his")
+    public void addDemoTreeHis(@RequestBody Demo demo){
+        demoService.addHis(demo);
     }
 
     @PutMapping("")
