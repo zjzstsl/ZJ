@@ -12,8 +12,11 @@
 
 
 ### Quick Start
+
 0、新建应用项目spring boot工程或标准maven工程；
+
 1、在pom.xml中加入
+
 ``` xml
 <dependency>
     <groupId>org.tis</groupId>
@@ -21,9 +24,13 @@
     <version>${tools.version}</version>
 </dependency>
 ```
-2、按照应用项目结构规范开发controller、service、dao（mapper.java、mapper.xml）
+
+2、开发业务逻辑：controller、service、dao（mapper.java、mapper.xml）
+
 3、在yml或properties中配置mybatis-plus和数据源配置
-4、使用注解 @org.tis.tools.starter.multidatasource.annotion.DataSource，在Service或Mapper类的方法上注明当前使用的数据源，如：
+
+4、使用注解 @org.tis.tools.starter.multidatasource.annotion.DataSource 指明数据源，如：
+以下代码指明了 treeHis()方法在执行时使用名称为otgerDataSource的数据源
 ``` java
 @Override
 @DataSource(name = "otherDataSource")
@@ -31,5 +38,4 @@ public List<DemoTreeVo> treeHis() {
     return demoMapper.tree();
 }
 ```
-如此即可指明 treeHis()方法在执行时将使用名称为otgerDataSource的数据源。
-
+>注： 一般在Service或Mapper类的方法上指定数据源
