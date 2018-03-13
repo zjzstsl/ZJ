@@ -1,0 +1,131 @@
+######################################
+#              \u516C\u5171\u914D\u7F6E
+######################################
+
+# :::::: \u9879\u76EE\u542F\u52A8\u7AEF\u53E3 ::::::
+
+server:
+    port: 18080
+
+# :::::: spring\u914D\u7F6E ::::::
+
+spring:
+  profiles:
+    active: dev # \u5F53\u524D\u751F\u6548\u73AF\u5883
+  devtools:
+    restart:
+      enabled: false
+
+# :::::: tools\u7684\u914D\u7F6E ::::::
+
+tools:
+  #swagger-open: true #\u662F\u5426\u5F00\u542Fswagger (true/false)
+  #kaptcha-open: false #\u662F\u5426\u5F00\u542F\u767B\u5F55\u65F6\u9A8C\u8BC1\u7801 (true/false)
+  #file-upload-path: d:/tmp  #\u6587\u4EF6\u4E0A\u4F20\u76EE\u5F55(\u4E0D\u914D\u7F6E\u7684\u8BDD\u4E3Ajava.io.tmpdir\u76EE\u5F55)
+  multi-datasource-open: true #\u662F\u5426\u5F00\u542F\u591A\u6570\u636E\u6E90(true/false)
+  #spring-session-open: false #\u662F\u5426\u5F00\u542Fspring session,\u5982\u679C\u662F\u591A\u673A\u73AF\u5883\u9700\u8981\u5F00\u542F(true/false)
+  #session-invalidate-time: 1800 #session\u5931\u6548\u65F6\u95F4(\u53EA\u5728\u5355\u673A\u73AF\u5883\u4E0B\u751F\u6548\uFF0C\u591A\u673A\u73AF\u5883\u5728SpringSessionConfig\u7C7B\u4E2D\u914D\u7F6E) \u5355\u4F4D\uFF1A\u79D2
+  #session-validation-interval: 900 #\u591A\u4E45\u68C0\u6D4B\u4E00\u6B21\u5931\u6548\u7684session(\u53EA\u5728\u5355\u673A\u73AF\u5883\u4E0B\u751F\u6548) \u5355\u4F4D\uFF1A\u79D2
+
+# :::::: mybatis-plus\u914D\u7F6E ::::::
+
+mybatis-plus:
+  # \u5982\u679C\u662F\u653E\u5728src/main/java\u76EE\u5F55\u4E0B
+  mapper-locations: classpath*:org/tis/toolsfortest/**/mapping/*.xml
+  # \u5982\u679C\u662F\u653E\u5728resource\u76EE\u5F55 classpath:/mapping/*Mapper.xml
+  #mapper-locations: classpath:/mapping/*Mapper.xml
+  # \u5B9E\u4F53\u626B\u63CF\uFF0C\u591A\u4E2Apackage\u7528\u9017\u53F7\u6216\u8005\u5206\u53F7\u5206\u9694
+  typeAliasesPackage: org.tis.toolsfortest.**.entity
+  # \u901A\u7528\u679A\u4E3E\u626B\u63CF\uFF0C\u652F\u6301\u7EDF\u914D\u7B26 * \u6216\u8005 ; \u5206\u5272
+  typeEnumsPackage: org.tis.toolsfortest.**.entity.enums
+  global-config:
+    # \u4E3B\u952E\u7C7B\u578B  0:"\u6570\u636E\u5E93ID\u81EA\u589E", 1:"\u7528\u6237\u8F93\u5165ID",2:"\u5168\u5C40\u552F\u4E00ID (\u6570\u5B57\u7C7B\u578B\u552F\u4E00ID)", 3:"\u5168\u5C40\u552F\u4E00ID UUID";
+    id-type: 0
+    # \u5B57\u6BB5\u7B56\u7565 0:"\u5FFD\u7565\u5224\u65AD",1:"\u975E NULL \u5224\u65AD"),2:"\u975E\u7A7A\u5224\u65AD"
+    field-strategy: 2
+    # \u9A7C\u5CF0\u4E0B\u5212\u7EBF\u8F6C\u6362
+    db-column-underline: false
+    # \u6570\u636E\u5E93\u5927\u5199\u4E0B\u5212\u7EBF\u8F6C\u6362
+    #capital-mode: true
+    # Sequence\u5E8F\u5217\u63A5\u53E3\u5B9E\u73B0\u7C7B\u914D\u7F6E (\u4E0D\u5728\u63A8\u8350\u4F7F\u7528\u6B64\u65B9\u5F0F\u8FDB\u884C\u914D\u7F6E,\u8BF7\u4F7F\u7528\u81EA\u5B9A\u4E49bean\u6CE8\u5165)
+    #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+    # \u5237\u65B0mapper \u8C03\u8BD5\u795E\u5668
+    refresh-mapper: true
+    # \u903B\u8F91\u5220\u9664\u914D\u7F6E\uFF08\u4E0B\u97623\u4E2A\u914D\u7F6E\uFF09
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    # \u81EA\u5B9A\u4E49sql\u6CE8\u5165\u5668 (\u4E0D\u5728\u63A8\u8350\u4F7F\u7528\u6B64\u65B9\u5F0F\u8FDB\u884C\u914D\u7F6E,\u8BF7\u4F7F\u7528\u81EA\u5B9A\u4E49bean\u6CE8\u5165)
+    #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: false
+    # \u914D\u7F6E\u7684\u7F13\u5B58\u7684\u5168\u5C40\u5F00\u5173
+    cache-enabled: true
+    # \u5EF6\u65F6\u52A0\u8F7D\u7684\u5F00\u5173
+    lazyLoadingEnabled: true
+    # \u5F00\u542F\u7684\u8BDD\uFF0C\u5EF6\u65F6\u52A0\u8F7D\u4E00\u4E2A\u5C5E\u6027\u65F6\u4F1A\u52A0\u8F7D\u8BE5\u5BF9\u8C61\u5168\u90E8\u5C5E\u6027\uFF0C\u5426\u5219\u6309\u9700\u52A0\u8F7D\u5C5E\u6027
+    multipleResultSetsEnabled: true
+    # \u6253\u5370sql\u8BED\u53E5,\u8C03\u8BD5\u7528
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+---
+
+######################################
+#            dev \u5F00\u53D1\u73AF\u5883\u914D\u7F6E
+######################################
+
+# :::::: \u5F00\u53D1\u73AF\u5883\u65F6 spring \u914D\u7F6E ::::::
+spring:
+  profiles: dev
+  # \u9ED8\u8BA4\u6570\u636E\u6E90
+  datasource:
+    datasource-name: default
+    url: jdbc:mysql://localhost:3306/tistools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123098
+    filters: log4j,wall,mergeStat
+
+
+# :::::: \u591A\u6570\u636E\u6E90,\u6027\u80FD\u76D1\u63A7\u5F00\u5173 ::::::
+
+tools:
+  # \u5F00\u542Fmybatis-plus\u7684\u6027\u80FD\u76D1\u63A7\u63D2\u4EF6
+  mybatis-performance-open: true
+  multi-datasource:
+    # \u591A\u6570\u636E\u6E90\u540D\u79F0
+    datasource-name: otherDataSource
+    url: jdbc:mysql://localhost:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123098
+
+# :::::: \u65E5\u5FD7\u8F93\u51FA\u3001\u7EA7\u522B\u914D\u7F6E ::::::
+logging:
+  level.root: info
+  level.org.tis.tools: debug
+  path: logs/
+  file: fortest.log
+
+---
+
+######################################
+#            pro \u751F\u4EA7\u73AF\u5883\u914D\u7F6E
+######################################
+
+spring:
+  profiles: pro
+  # \u6570\u636E\u6E90
+  datasource:
+    url: jdbc:mysql://localhost:3306/tools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123
+    filters: log4j,wall,mergeStat
+
+tools:
+  # \u5F00\u542Fmybatis-plus\u7684\u6027\u80FD\u76D1\u63A7\u63D2\u4EF6
+  mybatis-performance-open: false
+
+# :::::: \u65E5\u5FD7\u8F93\u51FA\u3001\u7EA7\u522B\u914D\u7F6E ::::::
+logging:
+  level.root: error
+  level.org.tis.tools: error
+  path: logs/
+  file: fortest.log
