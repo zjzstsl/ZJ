@@ -17,6 +17,7 @@ import org.tis.tools.starter.multidatasource.aop.MultiSourceExAop;
 import org.tis.tools.starter.multidatasource.config.MultiDataSourceProperties;
 import org.tis.tools.starter.mybatisplus.config.DruidProperties;
 
+import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -78,14 +79,17 @@ public class MultiDataSourceAutoConfiguration {
         DataSourceContextHolder.registerName(otherDataSource.getName());
         dynamicDataSource.setTargetDataSources(hashMap);
         dynamicDataSource.setDefaultTargetDataSource(defaultDataSource);
+        logger.debug("dynamicDataSource的hashCode：" + dynamicDataSource.hashCode());
         return dynamicDataSource;
     }
 
-//    @Bean
-//    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
-//    public PlatformTransactionManager txManager() {
-//        return new DataSourceTransactionManager(multiDataSource());
-//    }
+    @Bean
+    @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
+    public PlatformTransactionManager txManager(DynamicDataSource dataSource) {
+        // 打印调试信息，证明dataSource由multiDataSource()方法构造
+        logger.debug("dataSource的hashCode：" + dataSource.hashCode());
+        return new DataSourceTransactionManager(dataSource);
+    }
 
     @Bean
     @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
