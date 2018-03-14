@@ -63,7 +63,10 @@ public class UserController {
     ...
 }
 ```
->swagger注解的使用请参考[swagger常用注解说明](https://www.jianshu.com/p/12f4394462d5)，更多请自行查阅。
+>swagger注解的使用请参考
+- [swagger常用注解说明](https://www.jianshu.com/p/12f4394462d5)
+- [swagger注释API详细说明](http://blog.csdn.net/xupeng874395012/article/details/68946676)
+- 更多请自行查阅。
 
 5、启动应用项目，访问以下url，查看API信息
 
