@@ -22,6 +22,7 @@
 
 		<!-- tools starters -->
 		<module>../tools-starter-persistence</module>
+		<module>../tools-starter-swagger</module>
 
 		<!-- tools for test -->
 		<module>../tools-for-test</module>
