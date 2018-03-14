@@ -1,8 +1,8 @@
 package org.tis.toolsfortest;
 
-import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.tis.tools.starter.swagger.EnableSwagger2Doc;
 
 /**
  * 应用启动入口

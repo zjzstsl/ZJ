@@ -21,6 +21,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<tools-starters.version>1.0.0-RELEASE</tools-starters.version>
 	</properties>
 
 	<dependencies>
@@ -33,32 +34,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- tools-start-persistence begin -->
-		<dependency>
-			<groupId>org.tis</groupId>
-			<artifactId>tools-persistence-spring-boot-starter</artifactId>
-			<version>1.0.0-RELEASE</version>
-		</dependency>
-		<!-- tools-start-persistence end -->
 
-		<!-- swagger begin -->
-		<dependency>
-			<groupId>com.spring4all</groupId>
-			<artifactId>swagger-spring-boot-starter</artifactId>
-			<version>1.6.0.RELEASE</version>
-		</dependency>
+		<!-- lombok begin -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.16.16</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>io.github.swagger2markup</groupId>-->
-			<!--<artifactId>swagger2markup</artifactId>-->
-			<!--<version>1.3.1</version>-->
-		<!--</dependency>-->
-		<!-- swagger end -->
+		<!-- lombok end -->
+
+		<!-- tools-start-persistence begin
+		引入持久层能力
+		-->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-persistence-spring-boot-starter</artifactId>
+			<version>${tools-starters.version}</version>
+		</dependency>
+		<!-- tools-start-persistence end -->
+
+		<!-- tools-start-swagger begin
+		引入swagger能力
+		-->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-swagger-spring-boot-starter</artifactId>
+			<version>${tools-starters.version}</version>
+		</dependency>
+		<!-- tools-start-swagger end -->
+
 	</dependencies>
 
 	<build>
@@ -67,36 +72,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<!-- swagger begin -->
-			<!--<plugin>-->
-				<!--<groupId>io.github.swagger2markup</groupId>-->
-				<!--<artifactId>swagger2markup-maven-plugin</artifactId>-->
-				<!--<version>1.3.1</version>-->
-				<!--<configuration>-->
-					<!--<swaggerInput>http://localhost:8080/v2/api-docs</swaggerInput>-->
-					<!--<outputDir>src/docs/asciidoc/generated</outputDir>-->
-					<!--<config>-->
-						<!--<swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>-->
-					<!--</config>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-
-			<!--<plugin>-->
-				<!--<groupId>org.asciidoctor</groupId>-->
-				<!--<artifactId>asciidoctor-maven-plugin</artifactId>-->
-				<!--<version>1.5.6</version>-->
-				<!--<configuration>-->
-					<!--<sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>-->
-					<!--<outputDirectory>src/docs/asciidoc/html</outputDirectory>-->
-					<!--<backend>html</backend>-->
-					<!--<sourceHighlighter>coderay</sourceHighlighter>-->
-					<!--<attributes>-->
-						<!--<toc>left</toc>-->
-					<!--</attributes>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-			<!-- swagger end -->
 		</plugins>
 		<resources>
 			<resource>

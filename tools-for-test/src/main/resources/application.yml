@@ -77,15 +77,15 @@ logging:
 # ::::::::::::
 swagger:
   enabled: true
-  title: spring-boot-starter-swagger
-  description: Starter for swagger 2.x
-  version: 1.1.0.RELEASE
+  title: tools-for-test
+  description: 测试项目
+  version: 0.0.1-SANPSHOT
   license: Apache License, Version 2.0
   licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
-  contact.name: didi & Shiyunlai
+  contact.name: Shiyunlai
   contact.url: http://blog.didispace.com
-  contact.email: dyc87112@qq.com
+  contact.email: shi.yunlai@chinamworld.com
   base-package: org.tis
 
 
