@@ -18,6 +18,7 @@ import java.util.List;
  */
 @Api(tags = "用户管理")
 @RestController
+@CrossOrigin
 public class UserController {
 
     @ApiOperation("用户列表")

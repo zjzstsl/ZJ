@@ -20,6 +20,8 @@ spring:
 
 tools:
   multi-datasource-open: true
+  cors:
+    allowed-origins:
 
 # :::::: mybatis-plus ::::::
 
@@ -39,6 +41,12 @@ mybatis-plus:
     cache-enabled: true
     lazyLoadingEnabled: true
     multipleResultSetsEnabled: true
+
+# :::::: service cors ::::::
+
+tools:
+    open: true
+
 
 ---
 

@@ -23,6 +23,7 @@
 		<!-- tools starters -->
 		<module>../tools-starter-persistence</module>
 		<module>../tools-starter-swagger</module>
+		<module>../tools-starter-cors</module>
 
 		<!-- tools for test -->
 		<module>../tools-for-test</module>

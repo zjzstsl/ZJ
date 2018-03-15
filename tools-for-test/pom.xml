@@ -64,6 +64,16 @@
 		</dependency>
 		<!-- tools-start-swagger end -->
 
+		<!-- tools-start-cors begin
+		引入跨域能力
+		-->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-cors-spring-boot-starter</artifactId>
+			<version>${tools-starters.version}</version>
+		</dependency>
+		<!-- tools-start-swagger end -->
+
 	</dependencies>
 
 	<build>
