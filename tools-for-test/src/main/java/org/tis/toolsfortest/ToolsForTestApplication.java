@@ -2,6 +2,7 @@ package org.tis.toolsfortest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.tis.tools.starter.cors.EnableServiceCORS;
 import org.tis.tools.starter.swagger.EnableSwagger2Doc;
 
 /**
@@ -12,6 +13,7 @@ import org.tis.tools.starter.swagger.EnableSwagger2Doc;
  * @author Shiyunlai
  */
 @EnableSwagger2Doc
+@EnableServiceCORS
 @SpringBootApplication
 public class ToolsForTestApplication {
 
