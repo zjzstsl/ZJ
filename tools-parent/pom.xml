@@ -41,6 +41,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<tools.version>0.0.1-SNAPSHOT</tools.version>
+		<tools-starters.version>1.0.0-RELEASE</tools-starters.version>
 		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
 		<shiro.version>1.4.0</shiro.version>
 		<mybatis-plus.version>2.1.9</mybatis-plus.version>
@@ -63,7 +64,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- The Tis Tools -->
+			<!-- The Tis Tools begin -->
 			<dependency>
 				<groupId>org.tis</groupId>
 				<artifactId>tools-core</artifactId>
@@ -74,6 +75,32 @@
 				<artifactId>tools-asf-service</artifactId>
 				<version>${tools.version}</version>
 			</dependency>
+			<!-- The Tis Tools end -->
+
+			<!-- The Tis Tools Starters begin -->
+			<!-- tools-start-persistence begin 引入持久层能力 -->
+			<dependency>
+				<groupId>org.tis</groupId>
+				<artifactId>tools-persistence-spring-boot-starter</artifactId>
+				<version>${tools-starters.version}</version>
+			</dependency>
+
+			<!-- tools-start-swagger begin 引入swagger能力 -->
+			<dependency>
+				<groupId>org.tis</groupId>
+				<artifactId>tools-swagger-spring-boot-starter</artifactId>
+				<version>${tools-starters.version}</version>
+			</dependency>
+
+			<!-- tools-start-cors begin 引入跨域能力 -->
+			<dependency>
+				<groupId>org.tis</groupId>
+				<artifactId>tools-cors-spring-boot-starter</artifactId>
+				<version>${tools-starters.version}</version>
+			</dependency>
+
+			<!-- The Tis Tools Starters end -->
+
 			<!-- flowable 工作流 -->
 			<dependency>
 				<groupId>org.flowable</groupId>
