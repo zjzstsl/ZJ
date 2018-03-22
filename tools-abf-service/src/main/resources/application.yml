@@ -1,142 +1,124 @@
-##########################################################
-##################  所有profile共有的配置  #################
-##########################################################
+######################################
+#            base
+######################################
 
-###################  guns配置  ###################
-guns:
-  swagger-open: true #是否开启swagger (true/false)
-  kaptcha-open: false #是否开启登录时验证码 (true/false)
-  #file-upload-path: d:/tmp  #文件上传目录(不配置的话为java.io.tmpdir目录)
-  muti-datasource-open: false #是否开启多数据源(true/false)
-  spring-session-open: false #是否开启spring session,如果是多机环境需要开启(true/false)
-  session-invalidate-time: 1800 #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
-  session-validation-interval: 900 #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+# :::::::::::
 
-###################  项目启动端口  ###################
 server:
-  port: 9090
+    port: 18080
 
-###################  spring配置  ###################
+# :::::: spring ::::::
+
 spring:
-  redis:
-    host: localhost
-    port: 6379
-    password:
   profiles:
     active: dev
-  mvc:
-    static-path-pattern: /static/**
-    view:
-      prefix: /WEB-INF/view
-  http:
-    converters:
-      preferred-json-mapper: fastjson
-    multipart:
-      max-request-size: 100MB #最大请求大小
-      max-file-size: 100MB #最大文件大小
   devtools:
     restart:
-      enabled: false #是否开启开发者工具（true/false）
-      additional-paths: src/main/java
-      exclude: static/**,WEB-INF/view/**
-  aop:
-    proxy-target-class: true #false为启用jdk默认动态代理,true为cglib动态代理
+      enabled: false
 
-###################  beetl配置  ###################
-beetl:
-  delimiter-statement-start: \@   #开始结束标签(yaml不允许@开头)
-  delimiter-statement-end: null
-  resource-tagroot: common/tags   #自定义标签文件Root目录和后缀
-  resource-tagsuffix: tag
-  resource-auto-check: true #是否检测文件变化,开发用true合适，但线上要改为false
+# :::::: tools ::::::
 
-###################  mybatis-plus配置  ###################
+tools:
+  multi-datasource-open: true
+  cors:
+    allowed-origins:
+
+# :::::: mybatis-plus ::::::
+
 mybatis-plus:
-  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
-  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
-  mapper-locations: classpath*:com/stylefeng/guns/**/mapping/*.xml
-  # 实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.stylefeng.guns.modular.system.model,org.tis.tools.abf
-  # 通用枚举扫描，支持统配符 * 或者 ; 分割
-  #typeEnumsPackage: com.baomidou.springboot.entity.enums
+  mapper-locations: classpath*:org/tis/toolsfortest/**/mapping/*.xml
+  typeAliasesPackage: org.tis.toolsfortest.**.entity
+  typeEnumsPackage: org.tis.toolsfortest.**.entity.enums
   global-config:
-    # 主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     id-type: 0
-    # 字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
     field-strategy: 2
-    # 驼峰下划线转换
     db-column-underline: false
-    # 数据库大写下划线转换
-    #capital-mode: true
-    # Sequence序列接口实现类配置 (不在推荐使用此方式进行配置,请使用自定义bean注入)
-    #key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
-    # 刷新mapper 调试神器
     refresh-mapper: true
-    # 逻辑删除配置（下面3个配置）
     logic-delete-value: 0
     logic-not-delete-value: 1
-    # 自定义sql注入器 (不在推荐使用此方式进行配置,请使用自定义bean注入)
-    #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
   configuration:
     map-underscore-to-camel-case: false
-    # 配置的缓存的全局开关
     cache-enabled: true
-    # 延时加载的开关
     lazyLoadingEnabled: true
-    # 开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
     multipleResultSetsEnabled: true
-    # 打印sql语句,调试用
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# :::::: service cors ::::::
+
+tools:
+    open: true
+
 
 ---
 
-##########################################################
-###################  开发环境的profile  ###################
-##########################################################
+######################################
+#            dev
+######################################
+
+# ::::::::::::
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    datasource-name: default
+    url: jdbc:mysql://127.0.0.1:3306/tistools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: root123
-    #db-name: guns
+    password: root123098
     filters: log4j,wall,mergeStat
 
-#flowable数据源和多数据源配置
-guns:
-  flowable:
-    datasource:
-      url: jdbc:mysql://127.0.0.1:3306/guns_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
-      username: root
-      password: root123
-  muti-datasource:
-    default-dataSource-name: dataSourceGuns #默认的数据源名称
-    url: jdbc:mysql://127.0.0.1:3306/guns_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
-    username: root
-    password: root123
 
+# :::::::::::
+
+tools:
+  mybatis-performance-open: true
+  multi-datasource:
+    datasource-name: otherDataSource
+    url: jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123098
+
+# ::::::::::::
 logging:
   level.root: info
-  level.com.stylefeng: debug
   level.org.tis.tools: debug
   path: logs/
-  file: guns.log
+  file: fortest.log
+
+# ::::::::::::
+swagger:
+  enabled: true
+  title: tools-for-test
+  description: 测试项目
+  version: 0.0.1-SANPSHOT
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact.name: Shiyunlai
+  contact.url: http://blog.didispace.com
+  contact.email: shi.yunlai@chinamworld.com
+  base-package: org.tis
+
 
 ---
 
-##########################################################
-###################  正式环境的profile  ###################
-##########################################################
+######################################
+#            pro
+######################################
+
 spring:
-  profiles: produce
+  profiles: pro
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
-      username: root
-      password: root123
-      filters: log4j,wall,mergeStat
+    url: jdbc:mysql://127.0.0.1:3306/tools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123
+    filters: log4j,wall,mergeStat
+
+tools:
+  mybatis-performance-open: false
 
 logging:
-  level.root: warn
+  level.root: error
+  level.org.tis.tools: error
   path: logs/
-  file: guns.log
+  file: fortest.log
 
+swagger:
+  enabled: false

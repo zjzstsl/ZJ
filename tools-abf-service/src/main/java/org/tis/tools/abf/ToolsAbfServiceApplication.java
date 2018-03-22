@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Shiyunlai
  * @since 2018-03-02
  */
-@SpringBootApplication(scanBasePackages={"com.stylefeng.guns","org.tis.tools.abf"})
+@SpringBootApplication
 public class ToolsAbfServiceApplication {
 
     private final static Logger logger = LoggerFactory.getLogger(ToolsAbfServiceApplication.class);
