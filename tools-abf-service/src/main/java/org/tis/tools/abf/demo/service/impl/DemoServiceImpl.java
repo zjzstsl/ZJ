@@ -29,9 +29,13 @@ public class DemoServiceImpl extends ServiceImpl<DemoMapper, Demo> implements ID
      * @return
      */
     @Override
-    @DataSource //使用默认数据源， 或 @DataSource(name="default")；不加这个注释，使用默认数据源
     public List<DemoTreeVo> tree() {
         return demoMapper.tree();
+    }
+
+    @Override
+    public void add(Demo demo) {
+        demoMapper.insertAllColumn(demo);
     }
 
     /**
@@ -40,8 +44,14 @@ public class DemoServiceImpl extends ServiceImpl<DemoMapper, Demo> implements ID
      * @return
      */
     @Override
-    @DataSource(name = "otherDataSource") //使用指定的数据源
+    @DataSource(name = "otherDataSource")
     public List<DemoTreeVo> treeHis() {
         return demoMapper.tree();
+    }
+
+    @Override
+    @DataSource(name = "otherDataSource")
+    public void addHis(Demo demo) {
+        demoMapper.insertAllColumn(demo);
     }
 }
