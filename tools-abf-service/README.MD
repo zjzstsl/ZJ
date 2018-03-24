@@ -10,4 +10,4 @@ Application Base Framework Micro-Service
 
 ## API 接口
 
-    启动后查看对应的API描述 http://localhost:port/swagger-abf.html
+    启动后查看 http://ip:port/swagger-ui.html
