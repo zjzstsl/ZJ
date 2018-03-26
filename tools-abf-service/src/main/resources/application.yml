@@ -26,9 +26,9 @@ tools:
 # :::::: mybatis-plus ::::::
 
 mybatis-plus:
-  mapper-locations: classpath*:org/tis/toolsfortest/**/mapping/*.xml
-  typeAliasesPackage: org.tis.toolsfortest.**.entity
-  typeEnumsPackage: org.tis.toolsfortest.**.entity.enums
+  mapper-locations: classpath*:org/tis/tools/**/dao/mapping/*.xml
+  typeAliasesPackage: org.tis.tools.**.entity
+  typeEnumsPackage: org.tis.tools.**.entity.enums
   global-config:
     id-type: 0
     field-strategy: 2
@@ -55,7 +55,7 @@ spring:
     datasource-name: default
     url: jdbc:mysql://127.0.0.1:3306/tistools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: root123098
+    password: root
     filters: log4j,wall,mergeStat
 
 
@@ -67,7 +67,7 @@ tools:
     datasource-name: otherDataSource
     url: jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root
-    password: root123098
+    password: root
 
 # ::::::::::::
 logging:
