@@ -85,7 +85,7 @@ public class MultiDataSourceAutoConfiguration {
 
     @Bean
     @ConditionalOnProperty(prefix = "tools", name = "multi-datasource-open", havingValue = "true")
-    public PlatformTransactionManager txManager(DynamicDataSource dataSource) {
+    public PlatformTransactionManager transactionManager(DynamicDataSource dataSource) {
         // 打印调试信息，证明dataSource由multiDataSource()方法构造
         logger.debug("dataSource的hashCode：" + dataSource.hashCode());
         return new DataSourceTransactionManager(dataSource);
