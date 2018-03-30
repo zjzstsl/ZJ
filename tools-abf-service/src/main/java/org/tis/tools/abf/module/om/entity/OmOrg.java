@@ -165,9 +165,6 @@ public class OmOrg extends Model<OmOrg> {
 	/** 字段类型：varchar<br/>字段名：机构地址<br/>描述： */
 	private String orgAddr ;
 
-	/** 字段类型：varchar<br/>字段名：邮编<br/>描述：见业务字典： DICT_SD_ZIPCODE */
-	private String zipcode ;
-
 	/** 字段类型：varchar<br/>字段名：联系人姓名<br/>描述： */
 	private String linkMan ;
 
@@ -379,27 +376,6 @@ public class OmOrg extends Model<OmOrg> {
 	public String getOrgAddr(){
 		return this.orgAddr ;
 	}
-
-	/**
-	 * Set the 邮编.
-	 *
-	 * @param zipcode
-	 *            邮编
-	 */
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode == null ? null : zipcode.trim() ;
-	}
-
-	/**
-	 * Get the 邮编.
-	 *
-	 * @return 邮编
-	 */
-	public String getZipcode(){
-		return this.zipcode ;
-	}
-
-
 
 	/**
 	 * Set the 联系人姓名.
