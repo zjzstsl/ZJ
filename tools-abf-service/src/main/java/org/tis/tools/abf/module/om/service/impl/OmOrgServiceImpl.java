@@ -142,7 +142,7 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 		OmOrg parentsOrg = selectById(guidParents);
 		if(parentsOrg == null) {
 			throw new OrgManagementException(
-					OMExceptionCodes.ORGANIZATION_NOT_EXIST_BY_ORG_CODE, wrap(guidParents), "父机构{0}对应的机构不存在");
+					OMExceptionCodes.ORGANIZATION_NOT_EXIST_BY_ORG_CODE, wrap(guidParents));
 		}
 		String parentsOrgSeq = parentsOrg.getOrgSeq();
 		OmOrg org = new OmOrg();
