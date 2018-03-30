@@ -1,4 +1,4 @@
-package org.tis.tools.abf.demo.entity;
+package org.tis.tools.abf.module.demo.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

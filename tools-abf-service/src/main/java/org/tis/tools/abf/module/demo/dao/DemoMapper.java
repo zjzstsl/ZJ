@@ -1,8 +1,8 @@
-package org.tis.tools.abf.demo.dao;
+package org.tis.tools.abf.module.demo.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.tis.tools.abf.demo.entity.Demo;
-import org.tis.tools.abf.demo.vo.DemoTreeVo;
+import org.tis.tools.abf.module.demo.entity.Demo;
+import org.tis.tools.abf.module.demo.vo.DemoTreeVo;
 
 import java.util.List;
 

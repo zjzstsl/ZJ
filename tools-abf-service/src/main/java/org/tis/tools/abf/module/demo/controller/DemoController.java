@@ -1,15 +1,13 @@
-package org.tis.tools.abf.demo.controller;
+package org.tis.tools.abf.module.demo.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import org.tis.tools.abf.demo.entity.Demo;
-import org.tis.tools.abf.demo.service.IDemoService;
+import org.tis.tools.abf.module.demo.entity.Demo;
+import org.tis.tools.abf.module.demo.service.IDemoService;
 
 import javax.annotation.Resource;
 

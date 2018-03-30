@@ -1,4 +1,4 @@
-package org.tis.tools.abf.demo.vo;
+package org.tis.tools.abf.module.demo.vo;
 
 import java.io.Serializable;
 

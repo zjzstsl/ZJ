@@ -1,4 +1,4 @@
-package org.tis.tools.abf.demo.entity;
+package org.tis.tools.abf.module.demo.entity;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -7,7 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.ToString;
-import org.tis.tools.abf.demo.entity.enums.SexEnums;
+import org.tis.tools.abf.module.demo.entity.enums.SexEnums;
 
 import java.io.Serializable;
 import java.util.Date;

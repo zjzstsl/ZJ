@@ -1,8 +1,8 @@
-package org.tis.tools.abf.demo.service;
+package org.tis.tools.abf.module.demo.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import org.tis.tools.abf.demo.entity.Demo;
-import org.tis.tools.abf.demo.vo.DemoTreeVo;
+import org.tis.tools.abf.module.demo.entity.Demo;
+import org.tis.tools.abf.module.demo.vo.DemoTreeVo;
 
 import java.util.List;
 

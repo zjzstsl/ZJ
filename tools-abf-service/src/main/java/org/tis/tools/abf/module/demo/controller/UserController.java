@@ -1,10 +1,10 @@
-package org.tis.tools.abf.demo.controller;
+package org.tis.tools.abf.module.demo.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
-import org.tis.tools.abf.demo.entity.User;
+import org.tis.tools.abf.module.demo.entity.User;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
