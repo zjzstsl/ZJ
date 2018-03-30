@@ -27,8 +27,8 @@ tools:
 
 mybatis-plus:
   mapper-locations: classpath*:org/tis/toolsfortest/**/mapping/*.xml
-  typeAliasesPackage: org.tis.toolsfortest.**.entity
-  typeEnumsPackage: org.tis.toolsfortest.**.entity.enums
+  typeAliasesPackage: org.tis.toolsfortest.**.enums
+  typeEnumsPackage: org.tis.toolsfortest.**.enums.enums
   global-config:
     id-type: 0
     field-strategy: 2
@@ -80,7 +80,7 @@ logging:
   level.root: info
   level.org.tis.tools: debug
   path: logs/
-  file: fortest.log
+  file: fortest.jnl
 
 # ::::::::::::
 swagger:
@@ -118,7 +118,7 @@ logging:
   level.root: error
   level.org.tis.tools: error
   path: logs/
-  file: fortest.log
+  file: fortest.jnl
 
 swagger:
   enabled: false

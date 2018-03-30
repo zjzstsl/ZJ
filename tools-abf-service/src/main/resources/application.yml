@@ -26,18 +26,18 @@ tools:
 # :::::: mybatis-plus ::::::
 
 mybatis-plus:
-  mapper-locations: classpath*:org/tis/tools/**/dao/mapping/*.xml
-  typeAliasesPackage: org.tis.tools.**.entity
-  typeEnumsPackage: org.tis.tools.**.entity.enums
+  mapper-locations: classpath*:org/tis/tools/abf/module/**/dao/mapping/*.xml
+  typeAliasesPackage: org.tis.tools.abf.module.**.enums
+  typeEnumsPackage: org.tis.tools.abf.module.**.enums
   global-config:
-    id-type: 0
+    id-type: 5
     field-strategy: 2
     db-column-underline: false
     refresh-mapper: true
-    logic-delete-value: 0
-    logic-not-delete-value: 1
+    logic-delete-value: D
+    logic-not-delete-value: 0
   configuration:
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
     cache-enabled: true
     lazyLoadingEnabled: true
     multipleResultSetsEnabled: true
@@ -74,7 +74,7 @@ logging:
   level.root: info
   level.org.tis.tools: debug
   path: logs/
-  file: fortest.log
+  file: fortest.jnl
 
 # ::::::::::::
 swagger:
@@ -112,7 +112,7 @@ logging:
   level.root: error
   level.org.tis.tools: error
   path: logs/
-  file: fortest.log
+  file: fortest.jnl
 
 swagger:
   enabled: false
