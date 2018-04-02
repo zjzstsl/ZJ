@@ -45,7 +45,8 @@
 		<apache-ant-version>1.8.4</apache-ant-version>
 		<apache-poi-version>3.10-FINAL</apache-poi-version>
 		<beetl.version>2.7.15</beetl.version>
-		<ommons-io.commons-io.version>2.5</ommons-io.commons-io.version>
+		<commons-io.version>2.5</commons-io.version>
+		<commons.commons-io.version>1.3.2</commons.commons-io.version> <!-- //TODO  去掉，用commons-is代替 -->
 		<commons-lang3.version>3.6</commons-lang3.version>
 		<cglib-version>3.2.5</cglib-version>
 		<druid.version>1.1.6</druid.version>
@@ -62,7 +63,6 @@
 		<mysql-connector-java.version>5.1.38</mysql-connector-java.version>
 		<mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
 		<mybatis-plus.version>2.1.9</mybatis-plus.version>
-		<org.apache.commons.commons-io.version>1.3.2</org.apache.commons.commons-io.version>
 		<swagger.version>2.7.0</swagger.version>
 		<shiro.version>1.4.0</shiro.version>
 		<sourceforge-pinyin4j-version>2.5.0</sourceforge-pinyin4j-version>
@@ -92,27 +92,21 @@
 			<!-- The Tis Tools end -->
 
 			<!-- The Tis Tools Starters begin -->
-			<!-- tools-start-persistence begin 引入持久层能力 -->
 			<dependency>
 				<groupId>org.tis</groupId>
 				<artifactId>tools-persistence-spring-boot-starter</artifactId>
 				<version>${tools-starters.version}</version>
 			</dependency>
-
-			<!-- tools-start-swagger begin 引入swagger能力 -->
 			<dependency>
 				<groupId>org.tis</groupId>
 				<artifactId>tools-swagger-spring-boot-starter</artifactId>
 				<version>${tools-starters.version}</version>
 			</dependency>
-
-			<!-- tools-start-cors begin 引入跨域能力 -->
 			<dependency>
 				<groupId>org.tis</groupId>
 				<artifactId>tools-cors-spring-boot-starter</artifactId>
 				<version>${tools-starters.version}</version>
 			</dependency>
-
 			<!-- The Tis Tools Starters end -->
 
 			<!-- flowable 工作流 -->
@@ -155,11 +149,6 @@
 				<version>${mysql-connector-java.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus</artifactId>
-				<version>${mybatis-plus.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${fastjson.version}</version>
@@ -172,7 +161,7 @@
 			<dependency>
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
-				<version>${ommons-io.commons-io.version}</version>
+				<version>${commons-io.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.penggle</groupId>
@@ -220,11 +209,6 @@
 				<!--<artifactId>hutool-all</artifactId>-->
 				<!--<version>${hutool.version}</version>-->
 			<!--</dependency>-->
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${org.apache.commons.commons-io.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.apache.ant</groupId>
 				<artifactId>ant</artifactId>
@@ -308,6 +292,11 @@
 				<version>${lombok.version}</version>
 			</dependency>
 			<!-- lombok end -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons.commons-io.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
