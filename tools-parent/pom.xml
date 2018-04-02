@@ -37,40 +37,43 @@
 	</parent>
 
 	<properties>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<!-- 以下开始以字母排序 -->
+		<apache-ant-version>1.8.4</apache-ant-version>
+		<apache-poi-version>3.10-FINAL</apache-poi-version>
+		<beetl.version>2.7.15</beetl.version>
+		<ommons-io.commons-io.version>2.5</ommons-io.commons-io.version>
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<cglib-version>3.2.5</cglib-version>
+		<druid.version>1.1.6</druid.version>
+		<ehcache.version>3.3.1</ehcache.version>
+		<ehcache.core.version>2.6.11</ehcache.core.version>
+		<fastjson.version>1.2.44</fastjson.version>
+		<flowable.version>6.2.0</flowable.version>
+		<google-guava-version>23.5-jre</google-guava-version>
+		<hutool.version>4.0.6</hutool.version>
+		<junrar_version>0.7</junrar_version>
+		<jwt.version>0.7.0</jwt.version>
+		<kaptcha.version>2.3.2</kaptcha.version>
+		<lombok.version>1.16.12</lombok.version>
+		<mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+		<mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
+		<mybatis-plus.version>2.1.9</mybatis-plus.version>
+		<org.apache.commons.commons-io.version>1.3.2</org.apache.commons.commons-io.version>
+		<swagger.version>2.7.0</swagger.version>
+		<shiro.version>1.4.0</shiro.version>
+		<sourceforge-pinyin4j-version>2.5.0</sourceforge-pinyin4j-version>
 		<tools.version>0.0.1-SNAPSHOT</tools.version>
 		<tools-starters.version>1.0.0-RELEASE</tools-starters.version>
-		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-		<shiro.version>1.4.0</shiro.version>
-		<mybatis-plus.version>2.1.9</mybatis-plus.version>
-		<fastjson.version>1.2.44</fastjson.version>
-		<swagger.version>2.7.0</swagger.version>
-		<lombok.version>1.16.12</lombok.version>
-		<commons.io.version>2.5</commons.io.version>
-		<velocity.version>1.7</velocity.version>
-		<kaptcha.version>2.3.2</kaptcha.version>
-		<ehcache.version>3.3.1</ehcache.version>
-		<zxing.version>3.2.1</zxing.version>
-		<druid.version>1.1.6</druid.version>
-		<beetl.version>2.7.15</beetl.version>
-		<commons-lang3.version>3.6</commons-lang3.version>
-		<ehcache.core.version>2.6.11</ehcache.core.version>
-		<mysql-connector-java.version>5.1.38</mysql-connector-java.version>
-		<jwt.version>0.7.0</jwt.version>
-		<flowable.version>6.2.0</flowable.version>
-		<hutool.version>4.0.6</hutool.version>
-		<commons-io-version>1.3.2</commons-io-version>
-		<apache-ant-version>1.8.4</apache-ant-version>
 		<tmatesoft-svnkit-version>1.7.11</tmatesoft-svnkit-version>
-		<junrar_version>0.7</junrar_version>
-		<xalan-version>2.7.2</xalan-version>
-		<apache-poi-version>3.10-FINAL</apache-poi-version>
-		<google-guava-version>23.5-jre</google-guava-version>
-		<sourceforge-pinyin4j-version>2.5.0</sourceforge-pinyin4j-version>
 		<thoughtworks-xstream-version>1.4.9</thoughtworks-xstream-version>
-		<cglib-version>3.2.5</cglib-version>
+		<velocity.version>1.7</velocity.version>
+		<zxing.version>3.2.1</zxing.version>
+		<xalan-version>2.7.2</xalan-version>
+
 	</properties>
 
 	<dependencyManagement>
@@ -118,12 +121,18 @@
 				<artifactId>flowable-spring-boot-starter-basic</artifactId>
 				<version>${flowable.version}</version>
 			</dependency>
-            <!-- mybatis plus -->
+			<!-- mybatis-plus begin -->
 			<dependency>
 				<groupId>com.baomidou</groupId>
-				<artifactId>mybatisplus-spring-boot-starter</artifactId>
-				<version>${mybatisplus-spring-boot-starter.version}</version>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis-plus-boot-starter.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+			<!-- mybatis-plus end -->
 			<!-- shiro -->
 			<dependency>
 				<groupId>org.apache.shiro</groupId>
@@ -163,7 +172,7 @@
 			<dependency>
 				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
+				<version>${ommons-io.commons-io.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.penggle</groupId>
@@ -214,7 +223,7 @@
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-io</artifactId>
-				<version>${commons-io-version}</version>
+				<version>${org.apache.commons.commons-io.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.ant</groupId>
