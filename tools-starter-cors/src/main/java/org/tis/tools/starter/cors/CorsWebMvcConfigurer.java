@@ -2,6 +2,7 @@ package org.tis.tools.starter.cors;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * 设置跨域配置
@@ -9,7 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Shiyunlai
  * @since 2018-03-15
  */
-public class CorsWebMvcConfigurer implements WebMvcConfigurer{
+//public class CorsWebMvcConfigurer implements WebMvcConfigurer{
+public class CorsWebMvcConfigurer  extends WebMvcConfigurerAdapter{
 
     CorsConfigProperties corsConfigProperties;
 
