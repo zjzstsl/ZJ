@@ -25,6 +25,8 @@
 
 *.lock
 
+*.jnl
+
 *.searchable
 
 *.DS_Store
