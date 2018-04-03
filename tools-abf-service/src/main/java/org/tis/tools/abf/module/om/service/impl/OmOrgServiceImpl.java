@@ -77,19 +77,7 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 	@Override
 	public OmOrg createRootOrg(String areaCode, String orgDegree, String orgName,  String orgType)
 			throws OrgManagementException {
-		//验证传入参数
-		if(StringUtils.isEmpty(areaCode)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String areaCode", "createRootOrg"));
-		}
-		if(StringUtil.isEmpty(orgDegree)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgDegree", "createRootOrg"));
-		}
-		if(StringUtil.isEmpty(orgName)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgName", "createRootOrg"));
-		}
-		if(StringUtil.isEmpty(orgType)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgType", "createRootOrg"));
-		}
+
 		OmOrg org = new OmOrg();
 		// 补充信息
 //		org.setGuid(GUID.org());// 补充GUID
@@ -122,22 +110,6 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 	@Override
 	public OmOrg createChildOrg(String areaCode, String orgDegree, String orgName, String orgType, String guidParents)
 			throws OrgManagementException {
-		//验证传入参数
-		if(StringUtil.isEmpty(areaCode)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String areaCode", "createChildOrg"));
-		}
-		if(StringUtil.isEmpty(orgDegree)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgDegree", "createChildOrg"));
-		}
-		if(StringUtil.isEmpty(orgName)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgName", "createChildOrg"));
-		}
-		if(StringUtil.isEmpty(orgType)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String orgType", "createChildOrg"));
-		}
-		if(StringUtil.isEmpty(guidParents)) {
-			throw new OrgManagementException(ExceptionCodes.NOT_ALLOW_NULL_WHEN_CALL, wrap("String guidParents", "createChildOrg"));
-		}
 		// 查询父机构信息
 		OmOrg parentsOrg = selectById(guidParents);
 		if(parentsOrg == null) {
@@ -147,14 +119,19 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 		String parentsOrgSeq = parentsOrg.getOrgSeq();
 		OmOrg org = new OmOrg();
 		// 补充信息
-//		org.setGuid(GUID.org());// 补充GUID
-		org.setOrgStatus(OmOrgStatus.STOP);// 补充机构状态，新增机构初始状态为 停用
-		org.setGuidParents(parentsOrg.getGuid());// 补充父机构，根节点没有父机构
-		org.setCreateTime(new Date());// 补充创建时间
-		org.setLastUpdate(new Date());// 补充最近更新时间
-		org.setIsleaf(YON.YES);// 新增节点都先算叶子节点 Y
+		// 补充机构状态，新增机构初始状态为 停用
+		org.setOrgStatus(OmOrgStatus.STOP);
+		// 补充父机构，根节点没有父机构
+		org.setGuidParents(parentsOrg.getGuid());
+		// 补充创建时间
+		org.setCreateTime(new Date());
+		// 补充最近更新时间
+		org.setLastUpdate(new Date());
+		// 新增节点都先算叶子节点 Y
+		org.setIsleaf(YON.YES);
 		String newOrgSeq = parentsOrgSeq + "." + org.getGuid();
-		org.setOrgSeq(newOrgSeq);// 设置机构序列,根据父机构的序列+"."+机构的GUID
+		// 设置机构序列,根据父机构的序列+"."+机构的GUID
+		org.setOrgSeq(newOrgSeq);
 		// 收集入参
 		org.setOrgCode(orgCodeGenerator.genOrgCode(orgDegree, areaCode));
 		org.setOrgName(orgName);
