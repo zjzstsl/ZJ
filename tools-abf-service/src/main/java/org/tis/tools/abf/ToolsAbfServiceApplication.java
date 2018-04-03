@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.tis.tools.starter.swagger.EnableSwagger2Doc;
 
 /**
  * <pre>
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Shiyunlai
  * @since 2018-03-02
  */
+@EnableSwagger2Doc
 @SpringBootApplication
 public class ToolsAbfServiceApplication {
 
