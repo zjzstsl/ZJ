@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tis.tools.demo.module.a.dao.DemoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="org.tis.tools.demo.module.a.entity.Demo">
+        <id     column="guid" property="guid" />
+        <result column="dName" property="dName" />
+        <result column="dAge" property="dAge" />
+        <result column="dBirthday" property="dBirthday" />
+    </resultMap>
+
+    <select id="tree" resultType="org.tis.tools.demo.module.a.vo.DemoTreeVo">
+		select guid as guid, dName as name,
+		(
+		CASE
+		WHEN (dAge = 0 OR dAge IS NULL) THEN
+		'年龄不详'
+		ELSE
+		dAge
+		END
+		) as age from scaffold_demo
+	</select>
+
+</mapper>

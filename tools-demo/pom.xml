@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>tools-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>tools-demo</name>
+	<description>Demo project for Tools </description>
+
+	<parent>
+		<groupId>org.tis</groupId>
+		<artifactId>tools-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../tools-parent/pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- tools-start-persistence begin 引入持久层能力 -->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-persistence-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- tools-start-swagger begin 引入swagger能力 -->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-swagger-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- tools-start-cors begin 引入跨域能力 -->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-cors-spring-boot-starter</artifactId>
+		</dependency>
+		<!-- //Tools 依赖 end -->
+
+		<!-- lombok begin -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.16</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- lombok end -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<!-- mybatis-puls：如果mapper.xml是放在src/main/java目录下，需配置以下 -->
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>false</filtering>
+				<includes>
+					<!-- 约定 mapper.xml 放在以mapping标示的pacage路径里 -->
+					<include>**/mapping/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+
+</project>

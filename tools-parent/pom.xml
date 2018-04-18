@@ -26,7 +26,7 @@
 		<module>../tools-starter-cors</module>
 
 		<!-- tools for test -->
-		<module>../tools-for-test</module>
+		<module>../tools-demo</module>
     </modules>
 
 	<parent>
