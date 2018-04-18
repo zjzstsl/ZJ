@@ -17,16 +17,21 @@
 	</parent>
 
 	<properties>
-		<!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-		<!--<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
-		<!--<java.version>1.8</java.version>-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter</artifactId>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,10 +43,60 @@
 			<groupId>org.tis</groupId>
 			<artifactId>tools-core</artifactId>
 		</dependency>
+
+		<!-- tools-start-persistence begin 引入持久层能力 -->
 		<dependency>
-			<groupId>com.ibeetl</groupId>
-			<artifactId>beetl</artifactId>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-persistence-spring-boot-starter</artifactId>
 		</dependency>
+
+		<!-- tools-start-swagger begin 引入swagger能力 -->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-swagger-spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- tools-start-cors begin 引入跨域能力 -->
+		<dependency>
+			<groupId>org.tis</groupId>
+			<artifactId>tools-cors-spring-boot-starter</artifactId>
+		</dependency>
+		<!-- //Tools 依赖 end -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20171018</version>
+		</dependency>
+
 	</dependencies>
 
 	<!--<build>-->

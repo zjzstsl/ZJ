@@ -1,4 +1,4 @@
-package org.tis.tools.asf.service;
+package org.tis.tools.asf;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
