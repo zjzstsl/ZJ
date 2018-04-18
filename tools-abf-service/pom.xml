@@ -61,10 +61,6 @@
             <groupId>org.tis</groupId>
             <artifactId>tools-core</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.tis</groupId>
-            <artifactId>tools-asf-service</artifactId>
-        </dependency>
 
         <!-- tools-start-persistence begin 引入持久层能力 -->
         <dependency>

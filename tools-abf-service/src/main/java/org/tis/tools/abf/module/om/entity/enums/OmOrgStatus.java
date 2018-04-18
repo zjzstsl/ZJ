@@ -1,7 +1,8 @@
 package org.tis.tools.abf.module.om.entity.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
-import org.tis.tools.abf.module.om.exception.OrgManagementException;
+import org.tis.tools.core.entity.enums.BaseEnum;
+
+import java.io.Serializable;
 
 /**
  * describe: 机构状态枚举类
@@ -9,7 +10,7 @@ import org.tis.tools.abf.module.om.exception.OrgManagementException;
  * @author zhaoch
  * @date 2018/3/27
 **/
-public enum OmOrgStatus implements IEnum {
+public enum OmOrgStatus implements BaseEnum {
 
     /** 机构状态：正常 */
     RUNNING("running", "正常"),
@@ -42,5 +43,11 @@ public enum OmOrgStatus implements IEnum {
     @Override
     public String toString() {
         return name;
+    }
+
+
+    @Override
+    public Serializable deserialze() {
+        return value;
     }
 }

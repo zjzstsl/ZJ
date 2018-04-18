@@ -1,7 +1,7 @@
 package org.tis.tools.abf.module.jnl.exception;
 
 
-import org.tis.tools.abf.module.common.exception.ToolsRuntimeException;
+import org.tis.tools.core.exception.ToolsRuntimeException;
 
 public class JnlManagementException extends ToolsRuntimeException {
     private static final long serialVersionUID = 1L;

@@ -18,6 +18,12 @@
         <relativePath>../tools-parent/pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+
     <dependencies>
         <!-- 以下两个依赖是自动配置的依赖 -->
         <dependency>

@@ -1,10 +1,10 @@
 package org.tis.tools.abf.module.common.log.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import org.tis.tools.core.entity.enums.BaseEnum;
 
 import java.io.Serializable;
 
-public enum OperateResult implements IEnum {
+public enum OperateResult implements BaseEnum {
 
 
     SUCCESS("s", "成功"),
@@ -27,5 +27,11 @@ public enum OperateResult implements IEnum {
 
     public String getDesc() {
         return desc;
+    }
+
+
+    @Override
+    public Serializable deserialze() {
+        return value;
     }
 }

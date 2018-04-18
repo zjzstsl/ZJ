@@ -4,7 +4,7 @@
 package org.tis.tools.abf.module.om.exception;
 
 
-import org.tis.tools.abf.module.common.exception.ToolsRuntimeException;
+import org.tis.tools.core.exception.ToolsRuntimeException;
 
 /**
  * 

@@ -1,0 +1,118 @@
+######################################
+#            base
+######################################
+
+# :::::::::::
+
+server:
+    port: 18080
+
+# :::::: spring ::::::
+
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: false
+
+# :::::: tools ::::::
+
+tools:
+  multi-datasource-open: false
+  cors:
+    open: true
+
+# :::::: mybatis-plus ::::::
+
+mybatis-plus:
+  mapper-locations: classpath*:org/tis/tools/asf/module/**/dao/mapping/*.xml
+  typeAliasesPackage: org.tis.tools.asf.module.*.entity
+  typeEnumsPackage: org.tis.tools.asf.module.*.entity.enums
+  global-config:
+    id-type: 5
+    field-strategy: 2
+    db-column-underline: false
+    refresh-mapper: true
+    logic-delete-value: D
+    logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    lazyLoadingEnabled: true
+    multipleResultSetsEnabled: true
+
+---
+
+######################################
+#            dev
+######################################
+
+# ::::::::::::
+spring:
+  profiles: dev
+  datasource:
+    datasource-name: default
+    url: jdbc:mysql://localhost:3306/tools?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    filters: log4j,wall,mergeStat
+
+
+# :::::::::::
+
+tools:
+  mybatis-performance-open: true
+  multi-datasource:
+    datasource-name: otherDataSource
+    url: jdbc:mysql://47.96.147.236:3306/tistools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: tools
+    password: tools123
+
+# ::::::::::::
+logging:
+  level.root: info
+  level.org.tis.tools: debug
+  path: logs/
+  file: fortest.jnl
+
+# ::::::::::::
+swagger:
+  enabled: true
+  title: tools-for-test
+  description: 测试项目
+  version: 0.0.1-SANPSHOT
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact.name: Shiyunlai
+  contact.url: http://blog.didispace.com
+  contact.email: shi.yunlai@chinamworld.com
+  base-package: org.tis
+
+
+---
+
+######################################
+#            pro
+######################################
+
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/tools?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root123
+    filters: log4j,wall,mergeStat
+
+tools:
+  mybatis-performance-open: false
+
+logging:
+  level.root: error
+  level.org.tis.tools: error
+  path: logs/
+  file: fortest.jnl
+
+swagger:
+  enabled: false

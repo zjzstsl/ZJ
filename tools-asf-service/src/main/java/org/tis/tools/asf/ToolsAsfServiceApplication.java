@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <pre>
@@ -15,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2018-03-02
  */
 @SpringBootApplication
+@ComponentScan("org.tis.tools")
 public class ToolsAsfServiceApplication {
 
     private final static Logger logger = LoggerFactory.getLogger(ToolsAsfServiceApplication.class);
