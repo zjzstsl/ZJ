@@ -1,8 +1,8 @@
-package org.tis.tools.demo.module.test.service;
+package org.tis.tools.demo.module.a.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import org.tis.tools.demo.module.test.entity.Demo;
-import org.tis.tools.demo.module.test.vo.DemoTreeVo;
+import org.tis.tools.demo.module.a.entity.Demo;
+import org.tis.tools.demo.module.a.vo.DemoTreeVo;
 
 import java.util.List;
 

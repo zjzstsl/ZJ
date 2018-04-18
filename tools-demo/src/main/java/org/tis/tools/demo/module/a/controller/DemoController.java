@@ -1,4 +1,4 @@
-package org.tis.tools.demo.module.test.controller;
+package org.tis.tools.demo.module.a.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import org.tis.tools.demo.module.test.entity.Demo;
-import org.tis.tools.demo.module.test.service.IDemoService;
+import org.tis.tools.demo.module.a.entity.Demo;
+import org.tis.tools.demo.module.a.service.IDemoService;
 
 
 /**

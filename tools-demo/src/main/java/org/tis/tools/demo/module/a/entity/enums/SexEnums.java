@@ -1,4 +1,4 @@
-package org.tis.tools.demo.module.test.entity.enums;
+package org.tis.tools.demo.module.a.entity.enums;
 
 import com.baomidou.mybatisplus.enums.IEnum;
 import com.fasterxml.jackson.annotation.JsonValue;

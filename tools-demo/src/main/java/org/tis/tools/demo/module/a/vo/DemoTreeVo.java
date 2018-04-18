@@ -1,4 +1,4 @@
-package org.tis.tools.demo.module.test.vo;
+package org.tis.tools.demo.module.a.vo;
 
 import lombok.Data;
 import lombok.ToString;

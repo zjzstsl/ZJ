@@ -1,11 +1,11 @@
-package org.tis.tools.demo.module.test.service.impl;
+package org.tis.tools.demo.module.a.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-import org.tis.tools.demo.module.test.dao.DemoMapper;
-import org.tis.tools.demo.module.test.entity.Demo;
-import org.tis.tools.demo.module.test.service.IDemoService;
-import org.tis.tools.demo.module.test.vo.DemoTreeVo;
+import org.tis.tools.demo.module.a.dao.DemoMapper;
+import org.tis.tools.demo.module.a.entity.Demo;
+import org.tis.tools.demo.module.a.service.IDemoService;
+import org.tis.tools.demo.module.a.vo.DemoTreeVo;
 import org.tis.tools.starter.multidatasource.annotion.DataSource;
 
 import javax.annotation.Resource;

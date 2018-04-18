@@ -1,8 +1,8 @@
-package org.tis.tools.demo.module.test.dao;
+package org.tis.tools.demo.module.a.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.tis.tools.demo.module.test.entity.Demo;
-import org.tis.tools.demo.module.test.vo.DemoTreeVo;
+import org.tis.tools.demo.module.a.entity.Demo;
+import org.tis.tools.demo.module.a.vo.DemoTreeVo;
 
 import java.util.List;
 
