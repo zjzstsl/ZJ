@@ -89,7 +89,7 @@ public class OrgCodeServiceImpl implements IOrgCodeGenerator {
 
         String t = String.valueOf(totalOrgCount).toString();
 
-        return org.tis.tools.common.utils.StringUtil.leftPad(t, 5, '0');
+        return org.tis.tools.core.utils.StringUtil.leftPad(t, 5, '0');
 
     }
 

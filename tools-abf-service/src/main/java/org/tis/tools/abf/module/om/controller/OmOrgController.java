@@ -1,19 +1,16 @@
 package org.tis.tools.abf.module.om.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.tis.tools.abf.module.common.log.OperateLog;
 import org.tis.tools.abf.module.common.log.ReturnType;
-import org.tis.tools.abf.module.common.web.controller.BaseController;
-import org.tis.tools.abf.module.common.web.vo.ResultVO;
 import org.tis.tools.abf.module.om.controller.request.OmOrgAddRequest;
 import org.tis.tools.abf.module.om.entity.OmOrg;
 import org.tis.tools.abf.module.om.service.IOmOrgService;
-
-import javax.validation.constraints.NotNull;
+import org.tis.tools.core.web.controller.BaseController;
+import org.tis.tools.core.web.vo.ResultVO;
 
 /**
  * describe: 机构controller

@@ -12,7 +12,7 @@ import org.tis.tools.abf.module.sys.service.ISeqnoService;
 
 import java.math.BigDecimal;
 
-import static org.tis.tools.common.utils.BasicUtil.wrap;
+import static org.tis.tools.core.utils.BasicUtil.wrap;
 
 @Service
 @Transactional( rollbackFor = Exception.class)

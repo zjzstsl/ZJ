@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.tis.tools.starter.swagger.EnableSwagger2Doc;
 
 /**
@@ -17,6 +18,7 @@ import org.tis.tools.starter.swagger.EnableSwagger2Doc;
  */
 @EnableSwagger2Doc
 @SpringBootApplication
+@ComponentScan("org.tis.tools")
 public class ToolsAbfServiceApplication {
 
     private final static Logger logger = LoggerFactory.getLogger(ToolsAbfServiceApplication.class);

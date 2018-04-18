@@ -4,7 +4,7 @@
  */
 package org.tis.tools.abf.module.jnl.entity;
 
-import org.tis.tools.common.utils.StringUtil;
+import org.tis.tools.core.utils.StringUtil;
 
 import java.io.Serializable;
 

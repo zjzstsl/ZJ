@@ -1,6 +1,6 @@
-package org.tis.tools.abf.module.common.entity.enums;
+package org.tis.tools.abf.module.common.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import org.tis.tools.core.entity.enums.BaseEnum;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author zhaoch
  */
 
-public enum YON implements IEnum {
+public enum YON implements BaseEnum {
 
     YES("Y", "是"),
 
@@ -34,5 +34,10 @@ public enum YON implements IEnum {
     @Override
     public Serializable getValue() {
         return this.value;
+    }
+
+    @Override
+    public Serializable deserialze() {
+        return value;
     }
 }

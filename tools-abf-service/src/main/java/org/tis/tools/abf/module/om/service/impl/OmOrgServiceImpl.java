@@ -5,14 +5,10 @@ package org.tis.tools.abf.module.om.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionCallbackWithoutResult;
-import org.tis.tools.abf.module.common.entity.enums.YON;
-import org.tis.tools.abf.module.common.exception.ExceptionCodes;
+import org.tis.tools.abf.module.common.enums.YON;
 import org.tis.tools.abf.module.om.dao.OmOrgMapper;
 import org.tis.tools.abf.module.om.entity.OmOrg;
 import org.tis.tools.abf.module.om.entity.enums.OmOrgStatus;
@@ -20,12 +16,12 @@ import org.tis.tools.abf.module.om.exception.OMExceptionCodes;
 import org.tis.tools.abf.module.om.exception.OrgManagementException;
 import org.tis.tools.abf.module.om.service.IOmOrgService;
 import org.tis.tools.abf.module.om.service.IOrgCodeGenerator;
-import org.tis.tools.common.utils.StringUtil;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
-import static org.tis.tools.common.utils.BasicUtil.wrap;
+import static org.tis.tools.core.utils.BasicUtil.wrap;
 
 
 /**

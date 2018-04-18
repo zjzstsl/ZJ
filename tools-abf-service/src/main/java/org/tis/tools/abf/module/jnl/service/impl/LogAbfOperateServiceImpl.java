@@ -4,10 +4,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionCallbackWithoutResult;
-import org.tis.tools.abf.module.common.exception.ExceptionCodes;
+import org.tis.tools.core.exception.i18.ExceptionCodes;
 import org.tis.tools.abf.module.common.log.vo.LogHistoryDetail;
 import org.tis.tools.abf.module.common.log.vo.LogOperateDetail;
 import org.tis.tools.abf.module.jnl.dao.LogAbfOperateMapper;
@@ -23,7 +21,7 @@ import org.tis.tools.abf.module.jnl.service.ILogAbfOperateService;
 
 import java.util.Date;
 
-import static org.tis.tools.common.utils.BasicUtil.wrap;
+import static org.tis.tools.core.utils.BasicUtil.wrap;
 
 /**
  * describe:

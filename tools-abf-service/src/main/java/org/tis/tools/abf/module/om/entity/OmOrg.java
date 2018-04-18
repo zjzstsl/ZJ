@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.annotations.Version;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.tis.tools.abf.module.common.entity.enums.YON;
+import org.tis.tools.abf.module.common.enums.YON;
 import org.tis.tools.abf.module.om.entity.enums.OmOrgStatus;
 
 import java.io.Serializable;
