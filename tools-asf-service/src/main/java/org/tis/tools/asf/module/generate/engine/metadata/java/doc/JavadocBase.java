@@ -1,11 +1,16 @@
 package org.tis.tools.asf.module.generate.engine.metadata.java.doc;
 
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * describe: JavaDoc
+ *
+ * @author zhaoch
+ * @date 2018/4/23
+ **/
 public class JavadocBase {
 
     private String desc;
@@ -41,8 +46,8 @@ public class JavadocBase {
 
     public static JavadocBase createClassDoc(String desc) {
         JavadocBase d = new JavadocBase();
-        d.setDesc(desc);
-        ArrayList<Content> contents = new ArrayList<>();
+        d.setDesc(desc.replace("\n", "\n * "));
+        List<Content> contents = new ArrayList<>();
         contents.add(new Content("author", "Auto Generate Tools"));
         contents.add(new Content("date", new SimpleDateFormat("yyyy/MM/dd").format(new Date())));
         d.setContents(contents);
