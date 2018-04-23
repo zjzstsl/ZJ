@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.tis.tools.abf.module.common.enums.YON;
 import org.tis.tools.abf.module.om.entity.enums.OmOrgStatus;
+import org.tis.tools.core.entity.enums.CommonEnumDeserializer;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -26,6 +27,7 @@ import java.util.Date;
  * 模型文件 ： D:\tistools\tools-core-basic\model\ABF-mysql.erm
  * 业务域：om
  * 模型：OM_ORG 机构信息表
+ *
  *
  * 机构部门（Organization）表
 允许定义多个平行机构
@@ -157,7 +159,7 @@ public class OmOrg extends Model<OmOrg> {
 	/** 字段类型：varchar<br/>字段名：机构等级<br/>描述：见业务字典： DICT_OM_ORGDEGREE 如：总行，分行，海外分行... */
 	private String orgDegree ;
 
-	@JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
+	@JSONField(deserializeUsing = CommonEnumDeserializer.class)
 	/** 字段类型：varchar<br/>字段名：机构状态<br/>描述：见业务字典： DICT_OM_ORGSTATUS */
 	private OmOrgStatus orgStatus ;
 

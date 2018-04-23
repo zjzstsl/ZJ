@@ -4,8 +4,11 @@
  */
 package org.tis.tools.abf.module.jnl.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import org.tis.tools.abf.module.common.log.OperateType;
 import org.tis.tools.abf.module.common.log.enums.OperateResult;
+import org.tis.tools.core.entity.enums.CommonEnumDeserializer;
 import org.tis.tools.core.utils.StringUtil;
 
 import java.io.Serializable;
@@ -104,7 +107,8 @@ public class LogAbfOperate implements Serializable {
 	private String operateFrom ;
 	
 	/** 字段类型：varchar<br/>字段名：操作类型<br/>描述：见业务字典：DICT_OPERATOR_TYPE */
-	private String operateType ;
+	@JSONField(deserializeUsing = CommonEnumDeserializer.class)
+	private OperateType operateType ;
 	
 	/** 字段类型：date<br/>字段名：操作时间<br/>描述： */
 	private Date operateTime ;
@@ -193,8 +197,8 @@ public class LogAbfOperate implements Serializable {
 	 * @param operateType
 	 *            操作类型
 	 */
-	public void setOperateType(String operateType) {
- 		this.operateType = operateType == null ? null : operateType.trim() ;
+	public void setOperateType(OperateType operateType) {
+ 		this.operateType = operateType ;
     }
     
     /**
@@ -202,7 +206,7 @@ public class LogAbfOperate implements Serializable {
 	 * 
 	 * @return 操作类型
 	 */
-	public String getOperateType(){
+	public OperateType getOperateType(){
 		return this.operateType ;
     }
 	
