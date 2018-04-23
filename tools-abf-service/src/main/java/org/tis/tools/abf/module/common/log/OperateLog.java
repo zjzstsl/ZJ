@@ -7,7 +7,6 @@ import java.lang.annotation.*;
  * 对数据库的增删改一般要记录操作日志，添加"OperateLog"注解可以持久化保存操作的对象等信息
  *
  * 该注解通过对方法返回值的拦截处理，实现操作记录的获取和存储
- * 所以Controller的方法中要调用 BaseController.getReturnMap("需要返回的数据"){@link org.tis.tools.webapp.controller.BaseController#getReturnMap(Object)}的方法正确返回数据
  *
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -18,11 +17,11 @@ public @interface OperateLog {
  /**
      * 操作类型，比如维护类方法有
      * 增:add,删:delete,改:update,查:query(默认为查)
-     * 枚举值在JNLConstants中维护
+     * 枚举值{@link OperateType}
      *
      * @return
      */
-    String operateType() default "query";
+    OperateType operateType() default OperateType.QUERY;
 
     /**
      * 记录操作描述

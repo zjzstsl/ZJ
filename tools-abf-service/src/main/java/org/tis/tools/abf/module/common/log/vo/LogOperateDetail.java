@@ -1,6 +1,7 @@
 package org.tis.tools.abf.module.common.log.vo;
 
 
+import org.tis.tools.abf.module.common.log.OperateType;
 import org.tis.tools.abf.module.common.log.enums.OperateResult;
 import org.tis.tools.abf.module.jnl.entity.LogAbfOperate;
 
@@ -61,8 +62,8 @@ public class LogOperateDetail implements Serializable {
      * @param operateType
      *            操作类型
      */
-    public LogOperateDetail setOperateType(String operateType) {
-        this.log.setOperateType(operateType == null ? null : operateType.trim());
+    public LogOperateDetail setOperateType(OperateType operateType) {
+        this.log.setOperateType(operateType);
         return this;
     }
 

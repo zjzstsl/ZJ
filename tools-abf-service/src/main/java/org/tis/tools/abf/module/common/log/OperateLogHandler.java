@@ -61,7 +61,6 @@ public class OperateLogHandler {
     @Before("requestPointcut()")
     public void enterController(JoinPoint point) throws IOException {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        String reqInfo = "{}";
         String uri = request.getServletPath();
         String pathInfo = request.getPathInfo();
         if (pathInfo != null && pathInfo.length() > 0) {
@@ -72,6 +71,12 @@ public class OperateLogHandler {
                 request.getMethod(), paramString)) ;
     }
 
+    /**
+     *
+     * @param point
+     * @param ret
+     * @throws Throwable
+     */
     @AfterReturning(value = "requestPointcut()", returning = "ret")
     public void exitController(JoinPoint point, ResultVO ret) throws Throwable {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -82,6 +87,18 @@ public class OperateLogHandler {
             uri = uri + pathInfo;
         }
         logger.info(" [响应] Request URL:{}; Response Body:{}", BasicUtil.wrap(uri, objStr)) ;
+    }
+
+    @AfterReturning(value = "@annotation(org.springframework.web.bind.annotation.ExceptionHandler)", returning = "ret")
+    public void exitControllerAdvice(JoinPoint point, ResultVO ret) throws Throwable {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String objStr = JSON.toJSONString(ret);
+        String uri = request.getServletPath();
+        String pathInfo = request.getPathInfo();
+        if (pathInfo != null && pathInfo.length() > 0) {
+            uri = uri + pathInfo;
+        }
+        logger.error(" [响应] Request URL:{}; Response Body:{}", BasicUtil.wrap(uri, objStr)) ;
     }
 
     /**
@@ -199,7 +216,6 @@ public class OperateLogHandler {
     }
 
     private void saveLogInfo() {
-
         try {
             // 日志记录操作延时
             int operateDelayTime = 10;
