@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acRolenull
+ * acRole权限集（角色）定义表
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

@@ -5,7 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acRoleEntityfieldnull
+ * acRoleEntityfield角色与实体字段（属性）的对应关系。
+ * 说明某个角色拥有哪些属性的操作权。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

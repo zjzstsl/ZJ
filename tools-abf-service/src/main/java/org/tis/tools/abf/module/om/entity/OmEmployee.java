@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * omEmployeenull
+ * omEmployee人员信息表
+ * 人员至少隶属于一个机构；
+ * 本表记录了：人员基本信息，人员联系信息，人员在机构中的信息，人员对应的操作员信息集成了人员的多个维度信息一起。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

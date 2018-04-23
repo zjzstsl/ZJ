@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * sysChannelCtlnull
+ * sysChannelCtl
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

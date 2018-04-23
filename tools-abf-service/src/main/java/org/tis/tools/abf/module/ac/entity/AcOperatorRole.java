@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acOperatorRolenull
+ * acOperatorRole操作员与权限集（角色）对应关系表
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

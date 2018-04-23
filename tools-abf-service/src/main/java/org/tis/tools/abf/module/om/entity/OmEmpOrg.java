@@ -5,7 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omEmpOrgnull
+ * omEmpOrg定义人员和机构的关系表（机构有哪些人员）。
+ * 允许一个人员同时在多个机构，但是只能有一个主机构。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

@@ -12,8 +12,8 @@ import org.tis.tools.core.entity.enums.CommonEnumDeserializer;
 import java.io.Serializable;
 
 /**
- * sysSeqnonull
- * 
+ * sysSeqno每个SEQ_KEY表示一个序号资源，顺序增加使用序号。
+ *
  * @author Auto Generate Tools
  * @date 2018/04/23
  */

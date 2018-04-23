@@ -14,8 +14,9 @@ import org.tis.tools.core.entity.enums.CommonEnumDeserializer;
 import java.io.Serializable;
 
 /**
- * omOrgnull
- * 
+ * omOrg机构部门（Organization）表
+ * 允许定义多个平行机构
+ *
  * @author Auto Generate Tools
  * @date 2018/04/23
  */

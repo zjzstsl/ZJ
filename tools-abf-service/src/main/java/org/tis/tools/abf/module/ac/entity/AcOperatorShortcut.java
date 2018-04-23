@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acOperatorShortcutnull
+ * acOperatorShortcut针对应用系统定义快捷菜单
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

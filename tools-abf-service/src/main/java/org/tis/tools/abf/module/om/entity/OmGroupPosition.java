@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omGroupPositionnull
+ * omGroupPosition工作组岗位列表:一个工作组允许定义多个岗位，岗位之间允许存在层次关系
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

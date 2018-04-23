@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * sysDictItemnull
+ * sysDictItem业务字典内容项， 展示下拉菜单结构时，一般需要： 字典项，字典项名称，实际值
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

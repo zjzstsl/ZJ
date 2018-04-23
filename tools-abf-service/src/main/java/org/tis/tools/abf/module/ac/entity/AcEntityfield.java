@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acEntityfieldnull
+ * acEntityfield数据实体的字段（属性）定义表
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

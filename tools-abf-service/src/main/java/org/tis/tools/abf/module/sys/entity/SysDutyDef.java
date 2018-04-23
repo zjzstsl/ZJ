@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * sysDutyDefnull
+ * sysDutyDef职务及responsiblity。定义职务及上下级关系（可以把“职务”理解为岗位的岗位类型，岗位是在机构、部门中实例化后的职务，如：A机构设有‘总经理’这个岗位，其职务为‘总经理’）
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

@@ -1,5 +1,6 @@
 package org.tis.tools.asf.module.er.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -48,6 +49,7 @@ public class ERTable {
     /**
      * 表描述
      */
+    @JSONField(name = "description")
     private String desc;
 
     /**
