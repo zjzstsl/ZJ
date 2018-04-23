@@ -77,7 +77,7 @@ public class CommonRequestMethod extends MethodBase {
         String[] params = {GenerateUtils.firstUpperCase(modelName), service, GenerateUtils.firstLowerCase(modelName)};
         String format = new MessageFormat(template).format(params);
         CommonRequestMethod m = new CommonRequestMethod();
-        m.setAnnotations(Collections.singletonList(RestAnnotation.deleteMapping("/{id}")));
+        m.setAnnotations(Collections.singletonList(RestAnnotation.getMapping("/{id}")));
         m.setTemplate(new MethodTemplate(format, "org.springframework.web.bind.annotation.*",
                 "org.hibernate.validator.constraints.NotBlank"));
         return m;

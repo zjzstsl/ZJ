@@ -36,7 +36,7 @@ public class EntityFieldGenerator {
     public static FieldBase generalField(BizField field) {
         String desc = field.getLogicalName() + (StringUtils.isBlank(field.getDesc()) ? "" :  ":" + field.getDesc());
         FieldBase f = new FieldBase();
-        f.setDoc(new JavadocBase(desc));
+        f.setDoc(new JavadocBase(desc.replace("\n", "\n     * ")));
         f.setDeclaration("public");
         if (field.getPrimaryKey()) {
             List<AnnotationField> af1 = new ArrayList<>();

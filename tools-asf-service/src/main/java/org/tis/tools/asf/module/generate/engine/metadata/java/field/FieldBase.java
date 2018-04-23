@@ -10,7 +10,9 @@ import java.util.List;
 
 public class FieldBase extends ImportBase {
 
-    private static final String PSF = "private static final";
+    private static final String PBSF = "public static final";
+
+    private static final String PVSF = "private static final";
 
     private JavadocBase doc;
 
@@ -29,7 +31,7 @@ public class FieldBase extends ImportBase {
     public static FieldBase genSerialVersionUID() {
         FieldBase f = new FieldBase();
         f.setDoc(new JavadocBase("serialVersionUID."));
-        f.setDeclaration(PSF);
+        f.setDeclaration(PVSF);
         f.setType("long");
         f.setName("serialVersionUID");
         f.setValue("1L");
@@ -39,7 +41,7 @@ public class FieldBase extends ImportBase {
     public static FieldBase genPSFS(String fieldDesc, String fieldName, String value) {
         FieldBase f = new FieldBase();
         f.setDoc(new JavadocBase(fieldDesc));
-        f.setDeclaration(PSF);
+        f.setDeclaration(PBSF);
         f.setType(BizFieldType.STRING.value());
         f.setName(fieldName);
         f.setValue(value);
