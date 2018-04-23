@@ -30,7 +30,6 @@ public enum OmOrgStatus implements BaseEnum {
         this.name = name;
     }
 
-
     @Override
     public String getValue() {
         return this.value;
