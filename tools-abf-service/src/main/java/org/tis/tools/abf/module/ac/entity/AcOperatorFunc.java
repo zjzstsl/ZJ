@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acOperatorFuncnull
+ * acOperatorFunc针对人员配置的特殊权限，如特别开通的功能，或者特别禁止的功能
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

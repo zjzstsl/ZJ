@@ -5,7 +5,14 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acOperatorConfignull
+ * acOperatorConfig操作员个性化配置
+ * 如颜色配置
+ *     登录风格
+ *     是否使用重组菜单
+ *     默认身份
+ *     等
+ * 
+ * “操作员＋应用系统”，将配置按应用系统进行区分。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

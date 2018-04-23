@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omPositionAppnull
+ * omPositionApp岗位所拥有（允许操作）的应用列表信息
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

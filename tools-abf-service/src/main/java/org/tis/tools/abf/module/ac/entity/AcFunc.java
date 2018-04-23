@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acFuncnull
+ * acFunc功能&行为，菜单
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

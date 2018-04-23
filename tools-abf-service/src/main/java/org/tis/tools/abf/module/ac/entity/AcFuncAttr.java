@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acFuncAttrnull
+ * acFuncAttr功能表字段之外的属性
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

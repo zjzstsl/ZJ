@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acOperatornull
+ * acOperator系统登录用户表，一个用户只能有一个或零个操作员
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

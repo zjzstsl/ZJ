@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * sysDictnull
+ * sysDict业务字典表，定义系统中下拉菜单的数据（注意：仅仅包括下拉菜单中的数据，而不包括下拉菜单样式，是否多选这些与下拉内容无关的信息）
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

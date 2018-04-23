@@ -7,7 +7,11 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acOperatorIdentitynull
+ * acOperatorIdentity操作员对自己的权限进行组合形成一个固定的登录身份；
+ * 供登录时选项，每一个登录身份是员工操作员的权限子集；
+ * 登陆应用系统时，可以在权限子集间选择，如果不指定，则采用默认身份登陆。
+ * （可基于本表扩展支持：根据登陆渠道返回操作员的权限）
+ * 可以没有身份，不指定身份登陆时，表示使用操作所有角色、功能权限
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

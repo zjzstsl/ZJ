@@ -8,7 +8,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * omGroupnull
+ * omGroup工作组定义表，用于定义临时组、虚拟组，跨部门的项目组等。
+ * 工作组实质上与机构类似，是为了将项目组、工作组等临时性的组织机构管理起来，业务上通常工作组有一定的时效性，是一个非常设机构。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

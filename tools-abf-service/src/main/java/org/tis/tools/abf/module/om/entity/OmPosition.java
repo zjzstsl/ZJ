@@ -8,7 +8,10 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * omPositionnull
+ * omPosition岗位定义表
+ * 岗位是职务在机构上的实例化表现（某个机构／部门中对某个职务（Responsibility）的工作定义）；
+ * 一般情况下，每个岗位都需要配置一个职务系统当然出于业务上扩展考虑，并没有限制岗位一定要对应上职务；
+ * 例如，一个公司有三个部门A，B，C，每个部门都设置了管理岗位 A部门经理，B部门经理，C部门经理。同时可在三个岗位上设置共同的职务为“经理”
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

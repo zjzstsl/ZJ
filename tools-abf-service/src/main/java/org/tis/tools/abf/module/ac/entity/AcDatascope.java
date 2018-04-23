@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acDatascopenull
+ * acDatascope定义能够操作某个表数据的范围
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

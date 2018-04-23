@@ -5,7 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acRoleDatascopenull
+ * acRoleDatascope配置角色具有的数据权限。
+ * 说明角色拥有某个实体数据中哪些范围的操作权。
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

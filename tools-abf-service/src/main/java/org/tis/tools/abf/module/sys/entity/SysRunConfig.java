@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * sysRunConfignull
+ * sysRunConfig运行期系统参数表，以三段式结构进行参数存储
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

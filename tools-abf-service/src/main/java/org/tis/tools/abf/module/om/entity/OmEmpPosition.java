@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omEmpPositionnull
+ * omEmpPosition定义人员和岗位的对应关系，需要注明，一个人员可以设定一个基本岗位
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import java.io.Serializable;
 
 /**
- * acOperatorMenunull
+ * acOperatorMenu操作员对自己在某个应用系统的菜单重组
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * acRoleFuncnull
+ * acRoleFunc角色所包含的功能清单
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

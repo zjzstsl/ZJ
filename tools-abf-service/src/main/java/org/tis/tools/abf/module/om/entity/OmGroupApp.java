@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omGroupAppnull
+ * omGroupApp工作组所拥有（允许操作）的应用列表
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23

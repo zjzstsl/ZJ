@@ -5,7 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * omEmpGroupnull
+ * omEmpGroup定义工作组包含的人员（工作组中有哪些人员）
+ * 如：某个项目组有哪些人员
  * 
  * @author Auto Generate Tools
  * @date 2018/04/23
