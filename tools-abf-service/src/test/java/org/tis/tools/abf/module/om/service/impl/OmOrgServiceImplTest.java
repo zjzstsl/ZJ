@@ -7,8 +7,6 @@ import org.tis.tools.abf.base.BaseTest;
 import org.tis.tools.abf.module.om.entity.OmOrg;
 import org.tis.tools.abf.module.om.service.IOmOrgService;
 
-import static org.junit.Assert.*;
-
 public class OmOrgServiceImplTest extends BaseTest {
 
     @Autowired

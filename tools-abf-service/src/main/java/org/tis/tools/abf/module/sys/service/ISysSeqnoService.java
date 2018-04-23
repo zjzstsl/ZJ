@@ -1,9 +1,11 @@
 package org.tis.tools.abf.module.sys.service;
 
 
+import com.baomidou.mybatisplus.service.IService;
+import org.tis.tools.abf.module.sys.entity.SysSeqno;
 import org.tis.tools.abf.module.sys.exception.SysManagementException;
 
-public interface ISeqnoService {
+public interface ISysSeqnoService extends IService<SysSeqno> {
 
     /**
      * 获取下一个序列号

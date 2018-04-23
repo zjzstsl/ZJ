@@ -81,10 +81,6 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 		org.setOrgStatus(OmOrgStatus.STOP);
 		// 补充父机构，根节点没有父机构
 		org.setGuidParents("");
-		// 补充创建时间
-		org.setCreateTime(new Date());
-		// 补充最近更新时间
-		org.setLastUpdate(new Date());
 		// 新增节点都先算叶子节点 Y
 		org.setIsleaf(YON.YES);
 		// 设置机构序列,根机构直接用guid
@@ -119,10 +115,6 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 		org.setOrgStatus(OmOrgStatus.STOP);
 		// 补充父机构，根节点没有父机构
 		org.setGuidParents(parentsOrg.getGuid());
-		// 补充创建时间
-		org.setCreateTime(new Date());
-		// 补充最近更新时间
-		org.setLastUpdate(new Date());
 		// 新增节点都先算叶子节点 Y
 		org.setIsleaf(YON.YES);
 		String newOrgSeq = parentsOrgSeq + "." + org.getGuid();
@@ -135,8 +127,6 @@ public class OmOrgServiceImpl extends ServiceImpl<OmOrgMapper, OmOrg> implements
 		org.setOrgDegree(orgDegree);
 		org.setArea(areaCode);
 		// 更新父节点机构 是否叶子节点 节点数 最新更新时间 和最新更新人员
-		parentsOrg.setLastUpdate(new Date());// 补充最近更新时间
-		parentsOrg.setUpdator("");// TODO 暂时为空
 		parentsOrg.setIsleaf(YON.NO);
 		insert(org);//新增子节点
 		updateById(parentsOrg);//更新父节点

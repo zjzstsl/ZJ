@@ -5,5 +5,4 @@ import org.tis.tools.abf.module.om.entity.OmOrg;
 
 public interface OmOrgMapper extends BaseMapper<OmOrg> {
 
-    void queryDetail();
 }
