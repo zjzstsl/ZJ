@@ -8,7 +8,7 @@ import org.tis.tools.abf.module.sys.entity.SysSeqno;
 import org.tis.tools.abf.module.sys.entity.enums.SeqnoReset;
 import org.tis.tools.abf.module.sys.exception.SYSExceptionCodes;
 import org.tis.tools.abf.module.sys.exception.SysManagementException;
-import org.tis.tools.abf.module.sys.service.ISeqnoService;
+import org.tis.tools.abf.module.sys.service.ISysSeqnoService;
 
 import java.math.BigDecimal;
 
@@ -16,7 +16,7 @@ import static org.tis.tools.core.utils.BasicUtil.wrap;
 
 @Service
 @Transactional( rollbackFor = Exception.class)
-public class SeqnoServiceImpl extends ServiceImpl<SysSeqnoMapper, SysSeqno> implements ISeqnoService {
+public class SysSeqnoServiceImpl extends ServiceImpl<SysSeqnoMapper, SysSeqno> implements ISysSeqnoService {
 
     /**
      * 获取下一个序列号

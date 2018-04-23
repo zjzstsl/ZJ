@@ -68,9 +68,11 @@ public class FileUtils {
                 file.getParentFile().mkdirs();
             }
             file.createNewFile();
-            System.out.println("success create file,the file is " + filenameTemp);
+            System.out.println("success create file, the file is " + filenameTemp);
             //创建文件成功后，写入内容到文件里
             writeFileContent(filenameTemp, filecontent);
+        } else {
+            System.err.println("filed create existed file, the file is " + filenameTemp);
         }
     }
 
@@ -140,7 +142,6 @@ public class FileUtils {
     /**
      * 删除文件
      *
-     * @param fileName 文件名称
      * @return
      */
 //    public static boolean delFile(String fileName) {
