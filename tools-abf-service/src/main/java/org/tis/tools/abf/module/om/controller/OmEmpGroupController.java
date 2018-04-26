@@ -1,6 +1,7 @@
 package org.tis.tools.abf.module.om.controller;
 
 import org.springframework.validation.annotation.Validated;
+import org.tis.tools.abf.module.om.controller.request.OmEmpGroupAddRequest;
 import org.tis.tools.core.web.controller.BaseController;
 import org.tis.tools.core.web.vo.SmartPage;
 import org.tis.tools.abf.module.om.service.IOmEmpGroupService;
@@ -24,11 +25,15 @@ public class OmEmpGroupController extends BaseController<OmEmpGroup>  {
     private IOmEmpGroupService omEmpGroupService;
 
     @PostMapping("/add")
-    public ResultVO add(@RequestBody @Validated OmEmpGroup omEmpGroup) {
-        omEmpGroupService.insert(omEmpGroup);
-        return ResultVO.success("新增成功！");
+    public ResultVO add(@RequestBody @Validated OmEmpGroupAddRequest request) {
+        OmEmpGroup OmEmpGroup;
+        OmEmpGroup = omEmpGroupService.createChildOrg(request.getAreaCode(), request.getOrgDegree(),
+                request.getOrgName(), request.getOrgType(), request.getGuidParents());
+
+        return ResultVO.success(msg:"新增成功！",OmEmpGroup);
     }
-    
+
+
     @PutMapping
     public ResultVO update(@RequestBody @Validated OmEmpGroup omEmpGroup) {
         omEmpGroupService.updateById(omEmpGroup);

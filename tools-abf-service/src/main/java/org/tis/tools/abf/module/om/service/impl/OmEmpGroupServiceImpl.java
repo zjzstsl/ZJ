@@ -17,5 +17,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class OmEmpGroupServiceImpl extends ServiceImpl<OmEmpGroupMapper, OmEmpGroup> implements IOmEmpGroupService {
 
+    public OmEmpGroup createChildOrg(String areaCode, String orgDegree, String orgName, String orgType, String guidParents)
+			throws OrgManagementException {
+
+        OmEmpGroup org = new OmEmpGroup();
+		// 补充信息
+
+        org.setGuidEmp(guidEmp);
+        org.setGuidGroup(guidGroup);
+		return org;
+	}
 }
 
